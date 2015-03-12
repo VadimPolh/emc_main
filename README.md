@@ -1,19 +1,19 @@
-## Laravel 5 example ##
+## Laravel 5 Education Metodical Complex ##
 
-**Laravel 5 example** is a tutorial application.
+**Laravel 5 EMC** is a developing application.
 
-### Installation ###
+### Установка ###
 
-* `git clone https://github.com/bestmomo/laravel5-example.git projectname`
-* `cd projectname`
+* `git clone https://github.com/VadimPolh/emc_main.git EMC`
+* `cd EMC`
 * `composer install`
 * `php artisan key:generate`
-* Create a database and inform *.env*
-* `php artisan migrate` to create tables
-* `php artisan db:seed` to populate tables
-* Inform *config/mail.php* for email sends
+* Создайте базу данных и заполните *.env*
+* `php artisan migrate` для создания таблиц
+* `php artisan db:seed` для заполнения таблиц
+* Настройте *config/mail.php* для отправки писем
 
-### Include ###
+### Включено  ###
 
 * [HTML5 Boilerplate](http://html5boilerplate.com) for front architecture
 * [Bootstrap](http://getbootstrap.com) for CSS and jQuery plugins
@@ -23,7 +23,7 @@
 * [CKEditor](http://ckeditor.com) the great editor
 * [Filemanager](https://github.com/simogeo/Filemanager) the easy file manager
 
-### Features ###
+### Реализованно ###
 
 * Home page
 * Custom Error Page 404
@@ -39,13 +39,13 @@
 * Posts admin (list with dynamic order, show, edit, delete, create)
 * Medias gestion
 
-### Packages included ###
+### Включенные пакеты ###
 
 * laravelcollective/html
 
-### Tricks ###
+### Примочки ###
 
-To test application the database is seeding with users :
+Для теста приложения используйте следующих пользователей :
 
 * Administrator : email = admin@la.fr, password = admin
 * Redactor : email = redac@la.fr, password = redac
