@@ -11,7 +11,7 @@ class SetLocaleCommand extends Command implements SelfHandling {
 	 *
 	 * @array $languages
 	 */
-	protected $languages = ['en','fr'];
+	protected $languages = ['en','fr','ru'];
 
 	/**
 	 * Execute the command.

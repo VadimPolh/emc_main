@@ -13,7 +13,10 @@ class ChangeLocaleCommand extends Command implements SelfHandling {
 	 */
 	public function handle()
 	{
-		session()->set('locale', session('locale') == 'fr' ? 'en' : 'fr');
-	}
-
+		if (session('locale') == 'ru'){$new_lang = 'fr';}
+    elseif(session('locale') == 'fr'){$new_lang = 'ru';}
+    else{$new_lang = 'en';}
+    
+    session()->set('locale', 'ru');
+  }
 }
