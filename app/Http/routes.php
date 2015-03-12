@@ -69,6 +69,9 @@ Route::put('userseen/{id}', 'UserController@updateSeen');
 
 Route::resource('user', 'UserController');
 
+//Specialty
+Route::resource('specialty', 'SpecialtyController');
+
 // Auth
 Route::controllers([
 	'auth' => 'Auth\AuthController',

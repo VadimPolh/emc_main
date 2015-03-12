@@ -3,13 +3,13 @@
 return [
 	'title' => 'УМК - КБиП',
 	'sub-title' => 'An awesome PHP framework',
-	'home' => 'Home',
+	'home' => 'Главная',
 	'contact' => 'Contact',
-	'blog' => 'Blog',
+	'blog' => 'Новости',
 	'register' => 'Register',
 	'forget-password' => 'Forgotten password',
 	'connection' => 'Connection',
-	'administration' => 'Administration',
+	'administration' => 'Административный раздел',
 	'redaction' => 'Redaction',
-	'logout' => 'Logout'
+	'logout' => 'Выход'
 ];

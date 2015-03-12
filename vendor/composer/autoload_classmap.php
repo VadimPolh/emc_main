@@ -13,6 +13,8 @@ return array(
     'CreatePostTagTable' => $baseDir . '/database/migrations/2014_10_26_172904_create_post_tag_table.php',
     'CreatePostsTable' => $baseDir . '/database/migrations/2014_10_26_172107_create_posts_table.php',
     'CreateRolesTable' => $baseDir . '/database/migrations/2014_10_21_105844_create_roles_table.php',
+    'CreateSpecialtiesTable' => $baseDir . '/database/migrations/2015_03_12_122054_create_specialties_table.php',
+    'CreateSpecialtyTable' => $baseDir . '/database/migrations/2015_03_12_114434_create_specialty_table.php',
     'CreateTagsTable' => $baseDir . '/database/migrations/2014_10_26_172631_create_tags_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',

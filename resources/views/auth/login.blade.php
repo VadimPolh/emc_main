@@ -9,7 +9,7 @@
 				
     
 				<h2>{{ trans('front/login.connection') }}</h2>
-	       <p>{{ trans('front/login.text') }}</p>				
+	      <p>{{ trans('front/login.text') }}</p>				
 				
 				{!! Form::open(['url' => 'auth/login', 'method' => 'post', 'role' => 'form']) !!}	
 				
@@ -19,11 +19,12 @@
 					{!! Form::control('password', 6, 'password', $errors, trans('front/login.password')) !!}
 					{!! Form::submit(trans('front/form.login'), ['col-lg-12']) !!}
 					{!! Form::check('memory', trans('front/login.remind')) !!}
-{{--Не понятное для меня поле--}}					
-{{-- Form::text('address', '', ['class' => 'hpet']) --}}		  
+          
+          {{--Не понятное для меня поле--}}					
+          {{-- Form::text('address', '', ['class' => 'hpet']) --}}		  
 
-{!! link_to('password/email', trans('front/login.forget')) !!}
-		{!! link_to('auth/register', trans('front/login.registering'), ['class' => 'btn btn-default']) !!}
+          {!! link_to('password/email', trans('front/login.forget')) !!}
+		      {!! link_to('auth/register', trans('front/login.registering'), ['class' => 'btn btn-default']) !!}
 				
 				{!! Form::close() !!}
 

@@ -93,7 +93,7 @@
 							@endif
 						@endif
 						<li class="imgflag">
-							<a href="{!! url('language') !!}"><img width="32" height="32" alt="en" src="{!! asset('img/' . (session('locale') == 'fr' ? 'english' : 'french') . '-flag.png') !!}"></a>
+							<a href="{!! url('language') !!}"><img width="32" height="32" alt="en" src="{!! asset('img/' . (session('locale') == 'ru' ? 'russian' : 'english') . '-flag.png') !!}"></a>
 						</li>
 					</ul>
 				</div>
@@ -114,7 +114,6 @@
 
 	<footer role="contentinfo">
 		 @yield('footer')
-		<p class="text-center"><small>Copyright &copy; Momo</small></p>
 	</footer>
 		
 	{!! HTML::script('//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js') !!}

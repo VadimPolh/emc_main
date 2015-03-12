@@ -18,6 +18,15 @@ class DatabaseSeeder extends Seeder {
 
 		$lipsum = new LoremIpsumGenerator;
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
 		Role::create([
 			'title' => 'Administrator',
 			'slug' => 'admin'
@@ -34,8 +43,8 @@ class DatabaseSeeder extends Seeder {
 		]);
 
 		User::create([
-			'username' => 'GreatAdmin',
-			'email' => 'admin@la.fr',
+			'username' => 'Vadim Polh',
+			'email' => 'vadimpolh@gmail.com',
 			'password' => Hash::make('admin'),
 			'seen' => true,
 			'role_id' => 1

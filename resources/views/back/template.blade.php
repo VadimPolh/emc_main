@@ -8,7 +8,7 @@
 
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Mon site</title>
+		<title>УМК - Административный раздел</title>
 		<meta name="description" content="">	
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -77,6 +77,13 @@
                                 <li><a href="{!! url('user') !!}">{{ trans('back/admin.see-all') }}</a></li>
                                 <li><a href="{!! url('user/create') !!}">{{ trans('back/admin.add') }}</a></li>
                                 <li><a href="{!! url('user/roles') !!}">{{ trans('back/roles.roles') }}</a></li>
+                            </ul>
+                        </li>
+                        <li {!! Request::is('content') ? 'class="active"' : '' !!}>
+                            <a href="#" data-toggle="collapse" data-target="#content"><span class="fa fa-fw fa-file"></span> {{ trans('back/admin.content') }} <span class="fa fa-fw fa-caret-down"></span></a>
+                            <ul id="content" class="collapse">
+                                <li><a href="{!! url('user') !!}">{{ trans('back/admin.see-all') }}</a></li>
+                                <li><a href="{!! url('user/create') !!}">{{ trans('back/admin.add') }}</a></li>
                             </ul>
                         </li>
                         <li {!! Request::is('contact') ? 'class="active"' : '' !!}>
