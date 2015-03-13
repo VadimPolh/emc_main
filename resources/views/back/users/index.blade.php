@@ -34,7 +34,7 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th>{{ trans('back/users.name') }}</th>
+					<th>{{ trans('back/specialty.name') }}</th>
 					<th>{{ trans('back/users.role') }}</th>
 					<th>{{ trans('back/users.seen') }}</th>
 					<th></th>

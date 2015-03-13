@@ -2,6 +2,7 @@
 
 use App\Repositories\ContactRepository;
 use App\Repositories\UserRepository;
+use App\Repositories\SpecialtyRepository;
 use App\Repositories\BlogRepository;
 use App\Repositories\CommentRepository;
 use App\Services\Medias;

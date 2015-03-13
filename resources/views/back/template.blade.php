@@ -71,7 +71,7 @@
                         <li {!! Request::is('admin') ? 'class="active"' : '' !!}>
                              <a href="{!! route('admin') !!}"><span class="fa fa-fw fa-dashboard"></span> {{ trans('back/admin.dashboard') }}</a>
                         </li>
-                        <li {!! Request::is('user') ? 'class="active"' : '' !!}>
+                        <li {!! Request::is('user/*') ? 'class="active"' : '' !!}>
                             <a href="#" data-toggle="collapse" data-target="#usermenu"><span class="fa fa-fw fa-user"></span> {{ trans('back/admin.users') }} <span class="fa fa-fw fa-caret-down"></span></a>
                             <ul id="usermenu" class="collapse">
                                 <li><a href="{!! url('user') !!}">{{ trans('back/admin.see-all') }}</a></li>
@@ -79,10 +79,10 @@
                                 <li><a href="{!! url('user/roles') !!}">{{ trans('back/roles.roles') }}</a></li>
                             </ul>
                         </li>
-                        <li {!! Request::is('content') ? 'class="active"' : '' !!}>
+                        <li {!! Request::is('content/*') ? 'class="active"' : '' !!}>
                             <a href="#" data-toggle="collapse" data-target="#content"><span class="fa fa-fw fa-file"></span> {{ trans('back/admin.content') }} <span class="fa fa-fw fa-caret-down"></span></a>
                             <ul id="content" class="collapse">
-                                <li><a href="{!! url('user') !!}">{{ trans('back/admin.see-all') }}</a></li>
+                                <li><a href="{!! url('content/specialty') !!}">{{ trans('back/admin.specialty') }}</a></li>
                                 <li><a href="{!! url('user/create') !!}">{{ trans('back/admin.add') }}</a></li>
                             </ul>
                         </li>

@@ -2,8 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Specialty extends Model {
+class specialization extends Model {
 
-	protected $table = 'specialty';
+	//
 
 }

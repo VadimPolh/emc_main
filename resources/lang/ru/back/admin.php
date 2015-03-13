@@ -1,7 +1,7 @@
 <?php
 
 return [
-	'administration' => 'Administration',
+	'administration' => 'Раздел Администрирования',
 	'redaction' => 'Redaction',
 	'home' => 'Перейти к УМК',
 	'logout' => 'Выйти',
@@ -17,5 +17,6 @@ return [
 	'new-registers' => 'Новые пользователи !',
 	'new-posts' => 'Новые новости !',
 	'new-comments' => 'Новые комментарии !',
-  'content' => 'Контент'
+  'content' => 'Контент',
+  'specialty' => 'Специальности'
 ];

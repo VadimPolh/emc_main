@@ -94,7 +94,7 @@ class UserController extends Controller {
 	 */
 	public function create()
 	{
-		return view('back.users.create', $this->user_gestion->create());
+    return view('back.users.create', $this->user_gestion->create());
 	}
 
 	/**
@@ -104,8 +104,7 @@ class UserController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(
-		UserCreateRequest $request)
+	public function store(UserCreateRequest $request)
 	{
 		$this->user_gestion->store($request->all());
 

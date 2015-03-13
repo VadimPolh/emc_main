@@ -71,6 +71,7 @@ Route::resource('user', 'UserController');
 
 //Specialty
 Route::resource('specialty', 'SpecialtyController');
+Route::get('/content/specialty','SpecialtyController@index');
 
 // Auth
 Route::controllers([

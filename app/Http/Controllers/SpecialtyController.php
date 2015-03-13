@@ -2,14 +2,34 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Repository\SpecialtyRepository;
+use App\Repositories\SpecialtyRepository;
+use App\Http\Requests\SpecialtyCreateRequest;
 
 
 
 use Illuminate\Http\Request;
 
-class Specialty extends Controller {
+class SpecialtyController extends Controller {
 
+  
+  
+  
+  public function __construct(SpecialtyRepository  $specialty_gestion){
+    	$this->specialty_gestion = $specialty_gestion;
+  }
+  
+  
+  
+  
+  /**
+	 * The SpecialtyRepository instance.
+	 *
+	 * @var App\Repositories\SpecialtyRepository
+	 */
+	protected $specialty_gestion;
+  
+  
+  
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -17,7 +37,12 @@ class Specialty extends Controller {
 	 */
 	public function index()
 	{
-		//
+    $counts = $this->specialty_gestion->counts();
+    $specialty = $this->specialty_gestion->index(4);
+    $links = str_replace('/?', '?', $specialty->render());
+    
+		
+    return view('back.specialty.index',compact('counts','links','specialty'));
 	}
 
 	/**
@@ -27,7 +52,7 @@ class Specialty extends Controller {
 	 */
 	public function create()
 	{
-		//
+		return view('back.specialty.create');
 	}
 
 	/**
@@ -35,10 +60,14 @@ class Specialty extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(SpecialtyCreateRequest $request)
 	{
-		//
-	}
+		
+    
+    $this->specialty_gestion->store($request->all());
+    
+    return redirect('specialty')->with('ok', trans('back/specialty.created'));
+  }
 
 	/**
 	 * Display the specified resource.
