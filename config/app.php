@@ -144,6 +144,7 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 		'App\Services\Html\HtmlServiceProvider',
+    'Creativeorange\Gravatar\GravatarServiceProvider'
 
 	],
 
@@ -193,6 +194,7 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',
 		'Form'		=> 'Collective\Html\FormFacade',
 		'HTML'		=> 'Collective\Html\HtmlFacade',
+    'Gravatar' => 'Creativeorange\Gravatar\Facades\Gravatar'
 
 	],
 

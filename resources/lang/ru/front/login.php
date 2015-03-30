@@ -10,6 +10,6 @@ return [
 	'register' => 'Not registered ?',
 	'register-info' => 'To register quickly just click on the button !',
 	'registering' => 'Зарегистрироватся',
-	'credentials' => 'These credentials do not match our records.',
+	'credentials' => 'Пользователь с такими данными не найден',
 	'log' => 'E-mail'
 ];

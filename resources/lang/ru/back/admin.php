@@ -18,5 +18,10 @@ return [
 	'new-posts' => 'Новые новости !',
 	'new-comments' => 'Новые комментарии !',
   'content' => 'Контент',
-  'specialty' => 'Специальности'
+  'specialty' => 'Специальности',
+  'specializations' => 'Специализации',
+  'teachers' => 'Преподователи',
+  'students' => 'Ученики',
+  'objects' => 'Предметы',
+  'groups' => 'Группы'
 ];

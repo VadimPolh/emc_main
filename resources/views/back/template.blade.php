@@ -83,12 +83,19 @@
                             <a href="#" data-toggle="collapse" data-target="#content"><span class="fa fa-fw fa-file"></span> {{ trans('back/admin.content') }} <span class="fa fa-fw fa-caret-down"></span></a>
                             <ul id="content" class="collapse">
                                 <li><a href="{!! url('content/specialty') !!}">{{ trans('back/admin.specialty') }}</a></li>
-                                <li><a href="{!! url('user/create') !!}">{{ trans('back/admin.add') }}</a></li>
+                                <li><a href="{!! url('content/specializations') !!}">{{ trans('back/admin.specializations') }}</a></li>
+                                <li><a href="{!! url('content/specializations') !!}">{{ trans('back/admin.teachers') }}</a></li>
+                                <li><a href="{!! url('content/specializations') !!}">{{ trans('back/admin.groups') }}</a></li>
+                                <li><a href="{!! url('content/specializations') !!}">{{ trans('back/admin.students') }}</a></li>
                             </ul>
                         </li>
-                        <li {!! Request::is('contact') ? 'class="active"' : '' !!}>
+                  <li {!! Request::is('comment') ? 'class="active"' : '' !!}>
+                            <a href="{!! url('comment') !!}"><span class="fa fa-fw fa-book"></span> {{ trans('back/admin.objects') }}</a>
+                        </li>       
+                  <li {!! Request::is('contact') ? 'class="active"' : '' !!}>
                             <a href="{!! url('contact') !!}"><span class="fa fa-fw fa-envelope"></span> {{ trans('back/admin.messages') }}</a>
-                        </li>  
+                        </li>
+                       
                         <li {!! Request::is('comment') ? 'class="active"' : '' !!}>
                             <a href="{!! url('comment') !!}"><span class="fa fa-fw fa-comments"></span> {{ trans('back/admin.comments') }}</a>
                         </li> 

@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+
 use App\Commands\ChangeLocaleCommand;
 
 class HomeController extends Controller {
@@ -12,9 +13,13 @@ class HomeController extends Controller {
 	public function index()
 	{
     if (\Auth::check()){
-      return view('front.index');
+      
+      $user = \Auth::user();
+      
+      return view('front.inspinia.index',compact('user'));
+    
     }else{
-      return view('auth.login');
+      return view('front.inspinia.auth.login');
     }
 		
 	}

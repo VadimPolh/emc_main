@@ -56,7 +56,7 @@ class AuthController extends Controller {
 			return redirect('/');
 		}
 
-		return redirect('/auth/login')
+		return redirect('/')
 		->with('error', trans('front/login.credentials'))
 		->withInput($request->only('email'));
 	}

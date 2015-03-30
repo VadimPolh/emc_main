@@ -7,7 +7,7 @@ class FormBuilder extends \Collective\Html\FormBuilder {
 		return sprintf('
 
 				%s
-',
+	',
 			parent::submit($value, ['class' => 'btn btn-default'])
 		);
 	}
@@ -20,12 +20,10 @@ class FormBuilder extends \Collective\Html\FormBuilder {
 	public function control($type, $colonnes, $nom, $errors, $label = null, $valeur = null, $pop = null, $placeholder = '')
 	{
 		$attributes = ['class' => 'form-control', 'placeholder' => $placeholder];
-		return sprintf('%s
-			  %s
-			  %s
-				%s
-				%s
-			',
+		return sprintf('
+			<div class="form-group %s">%s
+                %s%s
+        %s</div>',
 			$errors->has($nom) ? 'has-error' : '',
 			$label ? $this->label($nom, $label, ['class' => 'control-label']) : '',
 			$pop? '<a href="#" tabindex="0" class="badge pull-right" data-toggle="popover" data-trigger="focus" title="' . $pop[0] .'" data-content="' . $pop[1] . '"><span>?</span></a>' : '',
@@ -37,9 +35,11 @@ class FormBuilder extends \Collective\Html\FormBuilder {
 	public function check($name, $label)
 	{
 		return sprintf('
+			<div class="checkbox">
 				<label>
 			  	%s%s
-			  </label>',
+			  </label>
+			</div>',
 			parent::checkbox($name),
 			$label
 		);		
