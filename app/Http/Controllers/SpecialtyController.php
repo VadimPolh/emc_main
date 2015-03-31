@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Repositories\SpecialtyRepository;
 use App\Http\Requests\SpecialtyCreateRequest;
+use App\Http\Requests\SpecialtyUpdateRequest;
 
 
 
@@ -77,7 +78,7 @@ class SpecialtyController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		return view('back.specialty.show',  $this->specialty_gestion->show($id));
 	}
 
 	/**
@@ -88,7 +89,7 @@ class SpecialtyController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		return view('back.specialty.edit',  $this->specialty_gestion->edit($id));
 	}
 
 	/**
@@ -97,9 +98,11 @@ class SpecialtyController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(SpecialtyUpdateRequest $request,$id)
 	{
-		//
+		$this->specialty_gestion->update($request->all(), $id);
+
+		return redirect('specialty')->with('ok', trans('back/specialty.updated'));
 	}
 
 	/**

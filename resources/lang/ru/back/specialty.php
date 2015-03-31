@@ -23,7 +23,9 @@ return [
 	'edition' => 'Edition',
 	'card' => 'Card',
 	'created' => 'Специальность создана',
-	'updated' => 'User updated.',
+	'updated' => 'Специальность обновлена',
 	'destroyed' => 'User destroyed.',
-	'specialty_id' => 'Номер Специальности'
+	'specialty_id' => 'Номер Специальности',
+  'short_name' => 'Краткое название',
+  'icon_class' => 'Класс иконки для отображения'
 ];
