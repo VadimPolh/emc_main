@@ -1,7 +1,7 @@
 <?php
 
 return [
-	'send' => 'Send',
+	'send' => 'Сохранить',
   'login' => 'Войти'
 ];
 

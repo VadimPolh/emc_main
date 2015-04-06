@@ -12,7 +12,7 @@ return [
 	'edit' => 'Изменить',
 	'destroy' => 'Удалить',
 	'destroy-warning' => 'Really destroy this user ?',
-	'fail' => 'Update fail.',
+	'fail' => 'Обновить не удалось.',
 	'creation' => 'Creation',
 	'Users' => 'Users',	
 	'email' => 'Email',

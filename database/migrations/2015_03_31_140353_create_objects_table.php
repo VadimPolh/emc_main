@@ -12,7 +12,12 @@ class CreateObjectsTable extends Migration {
 	 */
 	public function up()
 	{
-		
+		Schema::create('objects', function($table)
+    {
+      $table->increments('id');
+      $table->string('name');
+      
+    });
 	}
 
 	/**

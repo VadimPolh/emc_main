@@ -28,15 +28,25 @@ $(document).ready(function () {
       event.preventDefault();
       $.get( this.href, function( data ) {
            $('.wrapper-content').html(data);
+      })
+      .done(function() {
+      $('.to-main').on('click',function(event){
+        event.preventDefault();
+        $.get( '/', function( data ) {
+            $('.wrapper-content').html(data);
+        }).done(function(){
+          $('.news-href').on('click',function(event){
+      event.preventDefault();
+      $.get( this.href, function( data ) {
+           $('.wrapper-content').html(data);
+      })
+    });
+        });
       });
+    });
     });
   
-    $('.to-main').on('click',function(event){
-      event.preventDefault();
-      $.get( '/', function( data ) {
-           $('.wrapper-content').html(data);
-      });
-    });
+    
   
   
 });
