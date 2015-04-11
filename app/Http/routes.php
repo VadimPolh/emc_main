@@ -73,6 +73,10 @@ Route::resource('user', 'UserController');
 Route::resource('specialty', 'SpecialtyController');
 Route::get('/content/specialty','SpecialtyController@index');
 
+//Objects
+Route::resource('objects','ObjectsController');
+
+
 // Auth
 Route::controllers([
 	'auth' => 'Auth\AuthController',

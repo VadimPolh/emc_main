@@ -80,8 +80,8 @@
                             </ul>
                         </li>
                         <li {!! Request::is('content/*') ? 'class="active"' : '' !!}>
-                            <a href="#" data-toggle="collapse" data-target="#content"><span class="fa fa-fw fa-file"></span> {{ trans('back/admin.content') }} <span class="fa fa-fw fa-caret-down"></span></a>
-                            <ul id="content" class="collapse">
+                            <a href="#" data-toggle="collapse" data-target="#content_list"><span class="fa fa-fw fa-file"></span> {{ trans('back/admin.content') }} <span class="fa fa-fw fa-caret-down"></span></a>
+                            <ul id="content_list" class="collapse">
                                 <li><a href="{!! url('content/specialty') !!}">{{ trans('back/admin.specialty') }}</a></li>
                                 <li><a href="{!! url('content/specializations') !!}">{{ trans('back/admin.specializations') }}</a></li>
                                 <li><a href="{!! url('content/specializations') !!}">{{ trans('back/admin.teachers') }}</a></li>
@@ -89,8 +89,8 @@
                                 <li><a href="{!! url('content/specializations') !!}">{{ trans('back/admin.students') }}</a></li>
                             </ul>
                         </li>
-                  <li {!! Request::is('comment') ? 'class="active"' : '' !!}>
-                            <a href="{!! url('comment') !!}"><span class="fa fa-fw fa-book"></span> {{ trans('back/admin.objects') }}</a>
+                  <li {!! Request::is('objects') ? 'class="active"' : '' !!}>
+                            <a href="{!! url('objects') !!}"><span class="fa fa-fw fa-book"></span> {{ trans('back/admin.objects') }}</a>
                         </li>       
                   <li {!! Request::is('contact') ? 'class="active"' : '' !!}>
                             <a href="{!! url('contact') !!}"><span class="fa fa-fw fa-envelope"></span> {{ trans('back/admin.messages') }}</a>

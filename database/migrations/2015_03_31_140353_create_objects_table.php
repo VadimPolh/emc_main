@@ -16,7 +16,7 @@ class CreateObjectsTable extends Migration {
     {
       $table->increments('id');
       $table->string('name');
-      
+      $table->integer('specialty_id')->unsigned();
     });
 	}
 
