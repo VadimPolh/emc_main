@@ -1,14 +1,23 @@
 <?php namespace App\Repositories;
 
-use App\Models\Specialty;
+use App\Models\Specialty , App\Models\Objects;
 
 
 class SpecialtyRepository extends BaseRepository{
 
-  public function __construct(Specialty $specialty){
+  
+  protected $objects;
+  
+  
+  public function __construct(Specialty $specialty, Objects $objects){
     $this->specialty = $specialty;
+    $this->objects = $objects;
   }
   
+  public function all()
+	{
+		return $this->specialty->with('objects')->get();
+	}
   
   public function store($inputs){
     $specialty = new $this->specialty;
@@ -21,7 +30,7 @@ class SpecialtyRepository extends BaseRepository{
     $specialty->chief = $inputs['chief'];
     $specialty->specialty_id = $inputs['specialty_id'];
     $specialty->short_name = $inputs['short_name'];
-     $specialty->icon_class = $inputs['icon_class'];
+    $specialty->icon_class = $inputs['icon_class'];
     
     $specialty->save();
   }

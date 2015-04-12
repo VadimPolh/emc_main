@@ -6,4 +6,12 @@ class Specialty extends Model {
 
 	protected $table = 'specialty';
 
+
+  public function objects() 
+	{
+    return $this->belongsToMany('App\Models\Objects');
+	}
+  
+  
+
 }

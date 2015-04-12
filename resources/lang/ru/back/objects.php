@@ -22,5 +22,6 @@ return [
 	'card' => 'Card',
 	'created' => 'User created.',
 	'updated' => 'User updated.',
-	'destroyed' => 'User destroyed.'
+	'destroyed' => 'User destroyed.',
+  'specialty' => 'Специальность'
 ];

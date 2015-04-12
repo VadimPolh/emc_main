@@ -13,14 +13,14 @@ return [
 	'destroy' => 'Удалить',
 	'destroy-warning' => 'Really destroy this user ?',
 	'fail' => 'Обновить не удалось.',
-	'creation' => 'Creation',
-	'Users' => 'Users',	
+	'creation' => 'Создание',
+	'Users' => 'Пользователи',	
 	'email' => 'Email',
-	'password' => 'Password',
-	'confirm-password' => 'Confirm password',
-	'edition' => 'Edition',
+	'password' => 'Пароль',
+	'confirm-password' => 'Повторите пароль',
+	'edition' => 'Изменение',
 	'card' => 'Card',
-	'created' => 'User created.',
-	'updated' => 'User updated.',
-	'destroyed' => 'User destroyed.'
+	'created' => 'Пользователь создан.',
+	'updated' => 'Пользователь обновлен.',
+	'destroyed' => 'Пользователь удален.'
 ];

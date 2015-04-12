@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\ObjectsCreateRequest;
 use App\Repositories\ObjectRepository;
 
 class ObjectsController extends Controller {
@@ -36,7 +37,7 @@ class ObjectsController extends Controller {
     $objects = $this->object_gestion->index(10);
     $links = str_replace('/?', '?', $objects->render());
     
-    return view('back.objects.index',compact("counts","objects","links"));
+    return view('back.objects.index', compact("counts","objects","links"));
 	}
 
 	/**
@@ -46,7 +47,7 @@ class ObjectsController extends Controller {
 	 */
 	public function create()
 	{
-		return view('back.objects.create');
+		return view('back.objects.create',$this->object_gestion->create());
 	}
 
 	/**
@@ -54,9 +55,12 @@ class ObjectsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(ObjectsCreateRequest $request)
 	{
 		
+    $this->object_gestion->store($request->all());
+    
+    return redirect('objects')->with('ok', trans('back/objects.created'));
     
     
   }

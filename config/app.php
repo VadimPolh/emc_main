@@ -144,7 +144,8 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 		'App\Services\Html\HtmlServiceProvider',
-    'Creativeorange\Gravatar\GravatarServiceProvider'
+    'Creativeorange\Gravatar\GravatarServiceProvider',
+    'Laracasts\Generators\GeneratorsServiceProvider'
 
 	],
 

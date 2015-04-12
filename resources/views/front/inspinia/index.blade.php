@@ -1,4 +1,4 @@
-@if(!Request::ajax())
+
 
 @extends('front.inspinia.template')
 @section('main')
@@ -44,6 +44,7 @@
           </div>
           <div class="logo-element">IN+</div>
         </li>
+        
         @foreach ($specialty as $spec)
         <li>
          <a href="">
@@ -55,7 +56,21 @@
           @else
            <span class="nav-label">{{$spec->name}}</span> 
           @endif
-         </a>
+         
+          @if(count($spec->objects) != 0)
+          <span class="fa arrow"></span>
+           @endif 
+          </a>
+          
+          @if(count($spec->objects) != 0)
+          <ul class="nav nav-second-level">
+                   @foreach($spec->objects as $object)
+                      <li><a href="#">{{$object->name}}</a></li>
+                   @endforeach
+          </ul>
+          
+          @endif
+          
         </li>
         @endforeach
 
@@ -145,17 +160,7 @@
              
                
              
-                
-               
-               
-               
-                
-              
-                
-               
-               
-                
-               
+            
                 </tbody>
                 </table>
 
@@ -187,64 +192,3 @@
 
  
 @stop
-
-
-@else
-
-<div class="col-lg-12 animated fadeInRight">
-            <div class="mail-box-header">
-
-                <form method="get" action="index.html" class="pull-right mail-search">
-                    <div class="input-group">
-                        <input type="text" class="form-control input-sm" name="search" placeholder="Поиск новостей">
-                        <div class="input-group-btn">
-                            <button type="submit" class="btn btn-sm btn-primary">
-                                Поиск
-                            </button>
-                        </div>
-                    </div>
-                </form>
-                <h2>
-                    Новости ({{count($posts)}})
-                </h2>
-
-            </div>
-                <div class="mail-box">
-
-                <table class="table table-hover table-mail">
-                <tbody>
-                @foreach($posts as $post)
-                <tr class="unread">
-                    <td class="check-mail">
-                        {{$post->id}}
-                    </td>
-                    <td class="mail-ontact"><a href="#">{{ $post->user->username }}</a></td>
-                    <td class="mail-subject"><a class="news-href" href="/blog/{{$post->slug}}">{{ $post->title }}</a></td>
-                    <td class=""></td>
-                    <td class="text-right mail-date">{!! $post->created_at . ($post->created_at != $post->updated_at ? trans('front/blog.updated') . $post->updated_at : '') !!}</td>
-                </tr>
-               @endforeach
-             
-               
-             
-                
-               
-               
-               
-                
-              
-                
-               
-               
-                
-               
-                </tbody>
-                </table>
-
-
-                </div>
-            </div>
-     
-
-
-@endif

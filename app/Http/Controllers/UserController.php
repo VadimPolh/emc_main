@@ -72,7 +72,7 @@ class UserController extends Controller {
 	private function indexGo($role, $ajax = false)
 	{
 		$counts = $this->user_gestion->counts();
-		$users = $this->user_gestion->index(4, $role); 
+		$users = $this->user_gestion->index(10, $role); 
 		$links = str_replace('/?', '?', $users->render());
 		$roles = $this->role_gestion->all();
 
