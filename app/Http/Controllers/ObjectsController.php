@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\ObjectsCreateRequest;
 use App\Repositories\ObjectRepository;
+use App\Repositories\UserRepository;
+use App\Repositories\SpecialtyRepository;
 
 class ObjectsController extends Controller {
 
@@ -16,12 +18,19 @@ class ObjectsController extends Controller {
 	 */
 	protected $object_gestion;
   
-  
+  /**
+	 * The UserRepository instance.
+	 *
+	 * @var App\Repositories\UserRepository
+	 */
+	protected $user_gestion;
 	
   
-  public function __construct(ObjectRepository $object_gestion)
+  public function __construct(ObjectRepository $object_gestion,UserRepository $user_gestion, SpecialtyRepository $specialty_gestion)
 	{
 		$this->object_gestion = $object_gestion;
+    $this->user_gestion = $user_gestion;
+    $this->specialty_gestion = $specialty_gestion;
 	}
   
   
@@ -76,6 +85,18 @@ class ObjectsController extends Controller {
 		
 	}
 
+  public function showMain($slug){
+    
+    $user = \Auth::user();
+    $specialty = $this->specialty_gestion->all();
+    
+    
+    return view('front.inspinia.objects.show',compact('user','specialty')); 
+  }
+  
+  
+  
+  
 	/**
 	 * Show the form for editing the specified resource.
 	 *

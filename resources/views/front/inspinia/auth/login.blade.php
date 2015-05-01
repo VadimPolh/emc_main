@@ -1,4 +1,4 @@
-@extends('front.inspinia.template')
+@extends('front.inspinia.clean')
 @section('body-id'){{ 'gray-bg' }}@stop
 
 

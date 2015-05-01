@@ -75,7 +75,7 @@ Route::get('/content/specialty','SpecialtyController@index');
 
 //Objects
 Route::resource('objects','ObjectsController');
-
+Route::get('objects/show/{slug}', 'ObjectsController@showMain');
 
 // Auth
 Route::controllers([

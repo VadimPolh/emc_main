@@ -6,6 +6,7 @@ use App\Http\Requests\PostRequest;
 use App\Http\Requests\SearchRequest;
 use App\Repositories\BlogRepository;
 use App\Repositories\UserRepository;
+use App\Repositories\SpecialtyRepository;
 use App\Services\Medias;
 
 class BlogController extends Controller {
@@ -40,10 +41,11 @@ class BlogController extends Controller {
 	*/
 	public function __construct(
 		BlogRepository $blog_gestion,
-    	UserRepository $user_gestion)
+    	UserRepository $user_gestion,SpecialtyRepository $specialty_gestion)
 	{
-    	$this->user_gestion = $user_gestion;
+    $this->user_gestion = $user_gestion;
 		$this->blog_gestion = $blog_gestion;
+    $this->specialty_gestion = $specialty_gestion;
 		$this->nbrPages = 2;
 
 		$this->middleware('redac', ['except' => ['indexFront', 'show', 'tag', 'search']]);
@@ -135,8 +137,9 @@ class BlogController extends Controller {
 		$slug)
 	{
 		$user = $auth->user();
-
-		return view('front.blog.show',  array_merge($this->blog_gestion->show($slug), compact('user')));
+    $specialty = $this->specialty_gestion->all();
+    
+		return view('front.inspinia.blog.show',  array_merge($this->blog_gestion->show($slug), compact('user','specialty')));
 	}
 
 	/**

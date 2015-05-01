@@ -145,7 +145,8 @@ return [
 		'App\Providers\RouteServiceProvider',
 		'App\Services\Html\HtmlServiceProvider',
     'Creativeorange\Gravatar\GravatarServiceProvider',
-    'Laracasts\Generators\GeneratorsServiceProvider'
+    'Laracasts\Generators\GeneratorsServiceProvider',
+    'Cviebrock\EloquentSluggable\SluggableServiceProvider'
 
 	],
 

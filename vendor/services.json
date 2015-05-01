@@ -28,7 +28,8 @@
         "App\\Providers\\RouteServiceProvider",
         "App\\Services\\Html\\HtmlServiceProvider",
         "Creativeorange\\Gravatar\\GravatarServiceProvider",
-        "Laracasts\\Generators\\GeneratorsServiceProvider"
+        "Laracasts\\Generators\\GeneratorsServiceProvider",
+        "Cviebrock\\EloquentSluggable\\SluggableServiceProvider"
     ],
     "eager": [
         "Illuminate\\Auth\\AuthServiceProvider",
@@ -47,7 +48,8 @@
         "App\\Providers\\EventServiceProvider",
         "App\\Providers\\RouteServiceProvider",
         "Creativeorange\\Gravatar\\GravatarServiceProvider",
-        "Laracasts\\Generators\\GeneratorsServiceProvider"
+        "Laracasts\\Generators\\GeneratorsServiceProvider",
+        "Cviebrock\\EloquentSluggable\\SluggableServiceProvider"
     ],
     "deferred": {
         "command.app.name": "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider",
