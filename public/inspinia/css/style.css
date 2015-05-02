@@ -2674,7 +2674,7 @@ a.forum-item-title:hover {
   background: #ebebed;
   padding: 10px 20px;
   position: absolute;
-  right: 0;
+  left: 0;
 }
 .sidebard-panel .feed-element img.img-circle {
   width: 32px;

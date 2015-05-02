@@ -43,6 +43,18 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	{
 	  return $this->hasMany('App\Models\Post');
 	}
+  
+  
+  /**
+	 * One to Many relation
+	 *
+	 * @return Illuminate\Database\Eloquent\Relations\hasMany
+	 */
+	public function objects() 
+	{
+	  return $this->hasMany('App\Models\Objects');
+	}
+  
 
 	/**
 	 * One to Many relation

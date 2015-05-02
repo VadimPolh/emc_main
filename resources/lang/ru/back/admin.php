@@ -23,5 +23,6 @@ return [
   'teachers' => 'Преподователи',
   'students' => 'Ученики',
   'objects' => 'Предметы',
-  'groups' => 'Группы'
+  'groups' => 'Группы',
+  'lection' => 'Лекции'
 ];

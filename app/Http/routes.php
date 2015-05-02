@@ -77,6 +77,10 @@ Route::get('/content/specialty','SpecialtyController@index');
 Route::resource('objects','ObjectsController');
 Route::get('objects/show/{slug}', 'ObjectsController@showMain');
 
+//Lection
+Route::resource('lection','LectionController');
+
+
 // Auth
 Route::controllers([
 	'auth' => 'Auth\AuthController',

@@ -4,9 +4,11 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\ObjectsCreateRequest;
+use App\Http\Requests\ObjectsUpdateRequest;
 use App\Repositories\ObjectRepository;
 use App\Repositories\UserRepository;
 use App\Repositories\SpecialtyRepository;
+
 
 class ObjectsController extends Controller {
 
@@ -82,20 +84,28 @@ class ObjectsController extends Controller {
 	 */
 	public function show($id)
 	{
-		
+			return view('back.objects.show',  $this->object_gestion->show($id));
 	}
 
   public function showMain($slug){
     
     $user = \Auth::user();
     $specialty = $this->specialty_gestion->all();
+    $object = $this->object_gestion->getBySlug($slug);
     
-    
-    return view('front.inspinia.objects.show',compact('user','specialty')); 
+ 
+      
+    return view('front.inspinia.objects.show',compact('user','specialty','object')); 
   }
   
-  
-  
+  public function update(
+		ObjectsUpdateRequest $request,
+		$id)
+	{
+		$this->object_gestion->update($request->all(), $id);
+
+		return redirect('objects')->with('ok', trans('back/objects.updated'));
+	}
   
 	/**
 	 * Show the form for editing the specified resource.
@@ -105,21 +115,9 @@ class ObjectsController extends Controller {
 	 */
 	public function edit($id)
 	{
-		
+		return view('back.objects.edit',  $this->object_gestion->edit($id));
 	}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update()
-	{
-		
-
-		
-	}
 
 	/**
 	 * Remove the specified resource from storage.
@@ -129,7 +127,9 @@ class ObjectsController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		$this->object_gestion->destroy($id);
+
+		return redirect('objects')->with('ok', trans('back/objects.destroyed'));		
 	}
 
 }

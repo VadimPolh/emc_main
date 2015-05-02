@@ -20,6 +20,15 @@ class Objects extends Model implements SluggableInterface{
         'save_to'    => 'slug',
     );
 
+  /**
+	 * One to Many relation
+	 *
+	 * @return Illuminate\Database\Eloquent\Relations\BelongsTo
+	 */
+	public function user() 
+	{
+		return $this->belongsTo('App\Models\User');
+	}
   
   public function specialty() 
 	{

@@ -9,6 +9,7 @@
 		{!! Form::open(['url' => 'objects', 'method' => 'post', 'class' => 'form-horizontal panel']) !!}	
     {!! Form::control('text', 0, 'name', $errors, trans('back/objects.name')) !!}
   	{!! Form::selection('specialty_id', $select, null, trans('back/objects.specialty')) !!}
+  {!! Form::selection('user_id', $select_user, null, trans('back/objects.user')) !!}
   
   
   

@@ -27,5 +27,6 @@ return [
 	'destroyed' => 'User destroyed.',
 	'specialty_id' => 'Номер Специальности',
   'short_name' => 'Краткое название',
-  'icon_class' => 'Класс иконки для отображения'
+  'icon_class' => 'Класс иконки для отображения',
+  'nameobjects' => 'Название специальности'
 ];
