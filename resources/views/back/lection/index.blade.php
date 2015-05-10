@@ -14,4 +14,23 @@
     @include('partials/error', ['type' => 'success', 'message' => session('ok')])
 	@endif
 
+
+<div class="pull-right link">{!! $links !!}</div>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+        <tr>
+
+        </tr>
+        </thead>
+        <tbody>
+        @include('back.lection.table')
+        </tbody>
+    </table>
+</div>
+
+
+<div class="pull-right link">{!! $links !!}</div>
+
 @stop

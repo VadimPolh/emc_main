@@ -18,6 +18,13 @@ class LectionRepository extends BaseRepository
 
     }
 
+    public function index($n)
+    {
+
+        return $this->model->paginate($n);
+    }
+
+
     /**
      * @return mixed
      */
@@ -25,5 +32,7 @@ class LectionRepository extends BaseRepository
     {
         return $this->model->count();
     }
+
+
 
 }
