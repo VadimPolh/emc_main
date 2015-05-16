@@ -6,7 +6,7 @@ use Cviebrock\EloquentSluggable\SluggableTrait;
 
 class Lection extends Model implements SluggableInterface{
 
-	  use SluggableTrait;
+	use SluggableTrait;
 
     protected $sluggable = array(
         'build_from' => 'title',

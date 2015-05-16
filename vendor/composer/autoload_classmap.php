@@ -6,12 +6,14 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddDescriptionToObjectsTable' => $baseDir . '/database/migrations/2015_05_16_154800_add_description_to_objects_table.php',
     'AddLectionTable' => $baseDir . '/database/migrations/2015_05_02_140050_addLectionTable.php',
+    'AddObjectToLectionsTable' => $baseDir . '/database/migrations/2015_05_16_124440_add_object_to_lections_table.php',
     'AddShortNameToSpecialty' => $baseDir . '/database/migrations/2015_03_31_102354_add_shortName_to_specialty.php',
+    'AddViewsToObjectsTable' => $baseDir . '/database/migrations/2015_05_16_155703_add_views_to_objects_table.php',
     'CreateCommentsTable' => $baseDir . '/database/migrations/2014_10_26_222018_create_comments_table.php',
     'CreateContactTable' => $baseDir . '/database/migrations/2014_10_24_205441_create_contact_table.php',
     'CreateForeignKeys' => $baseDir . '/database/migrations/2014_10_21_110325_create_foreign_keys.php',
-    'CreateLectionsTable' => $baseDir . '/database/migrations/2015_05_02_141923_create_lections_table.php',
     'CreateObjectSpecialtyPivotTable' => $baseDir . '/database/migrations/2015_04_12_101332_create_object_specialty_pivot_table.php',
     'CreateObjectsTable' => $baseDir . '/database/migrations/2015_03_31_140353_create_objects_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',

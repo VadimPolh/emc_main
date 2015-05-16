@@ -50,6 +50,15 @@ h5 {
 .nav > li.active > a {
   color: #ffffff;
 }
+.lection-list{
+  padding-left: 0;
+  padding-right: 0;
+  margin-top: 5px;
+}
+.object-description{
+  margin-top: 5px;
+  padding-right: 0px;
+}
 .navbar-default .nav > li > a:hover,
 .navbar-default .nav > li > a:focus {
   background-color: #293846;
@@ -4041,9 +4050,18 @@ a.compose-mail {
 }
 .feed-element img.img-circle,
 .dropdown-messages-box img.img-circle {
-  width: 38px;
-  height: 38px;
+  width: 32px;
+  height: 32px;
 }
+.randomize-box{
+  width: 32px;
+  height: 32px;
+  border: 1px solid white;
+  line-height: 2.3;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+  font-weight: 700;}
 .feed-element .well {
   border: 1px solid #e7eaec;
   box-shadow: none;

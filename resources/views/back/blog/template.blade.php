@@ -70,7 +70,7 @@
 
     CKEDITOR.replace( 'summary', config);
 
-		config['height'] = 400;		
+		config['height'] = 400;
 
 		CKEDITOR.replace( 'content', config);
 

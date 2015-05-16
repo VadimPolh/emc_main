@@ -21,7 +21,11 @@
     <table class="table">
         <thead>
         <tr>
-
+            <th>{{ trans('back/lection.name') }}</th>
+            <th>{{ trans('back/lection.slug') }}</th>
+            <th>{{ trans('back/lection.nameobjects') }}</th>
+            <th></th>
+            <th></th>
         </tr>
         </thead>
         <tbody>

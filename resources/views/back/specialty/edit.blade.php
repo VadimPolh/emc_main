@@ -2,7 +2,6 @@
 
 @section('main')
 
- <!-- Entête de page -->
   @include('back.partials.entete', ['title' => trans('back/specialty.dashboard'), 'icone' => 'specialty', 'fil' => link_to('specialty', trans('back/specialty.all')) . ' / ' . trans('back/specialty.edition')])
 
 	<div class="col-sm-12">
@@ -15,5 +14,12 @@
 			{!! Form::submit(trans('front/form.send')) !!}
 		{!! Form::close() !!}
 	</div>
+
+	<h3>Предметы</h3>
+  	<?php $i=1 ?>
+	@foreach($specialty->objects as $objects)
+		<p>{{$i}}. <a href="/objects/{{$objects->id}}">{{$objects->title}}</a></p>
+		<?php $i++ ?>
+	@endforeach
 
 @stop

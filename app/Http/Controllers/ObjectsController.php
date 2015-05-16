@@ -84,7 +84,7 @@ class ObjectsController extends Controller {
 	 */
 	public function show($id)
 	{
-			return view('back.objects.show',  $this->object_gestion->show($id));
+		return view('back.objects.show',  $this->object_gestion->show($id));
 	}
 
   public function showMain($slug){

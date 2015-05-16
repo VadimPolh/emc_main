@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLectionsTable extends Migration {
+class AddViewsToObjectsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,9 @@ class CreateLectionsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('lections', function(Blueprint $table)
+		Schema::table('objects', function(Blueprint $table)
 		{
-			$table->increments('id');
-			$table->timestamps();
+			$table->integer('view_count')->default(0);
 		});
 	}
 
@@ -26,7 +25,10 @@ class CreateLectionsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('lections');
+		Schema::table('objects', function(Blueprint $table)
+		{
+			$table->dropColumn('view_count');
+		});
 	}
 
 }

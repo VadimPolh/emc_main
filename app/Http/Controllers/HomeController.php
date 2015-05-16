@@ -57,9 +57,10 @@ class HomeController extends Controller {
       $specialty = $this->specialty_gestion->all();
       
       
-      
+
+
       //Новости
-      $posts = $this->blog_gestion->indexFront($this->nbrPages);
+		$posts = $this->blog_gestion->indexFront($this->nbrPages);
     	$links = str_replace('/?', '?', $posts->render());
       
       return view('front.inspinia.index',compact('user','specialty','posts', 'links'));
@@ -67,7 +68,7 @@ class HomeController extends Controller {
     
     
     }else{
-      
+
       return view('front.inspinia.auth.login');
     
     }

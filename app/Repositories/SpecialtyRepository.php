@@ -49,15 +49,15 @@ class SpecialtyRepository extends BaseRepository{
   
   public function show($id){
     
-    $specialty = $this->specialty->findOrFail($id);
+    $specialty = $this->specialty->with('objects')->findOrFail($id);
 
-		return compact('specialty');
+    return compact('specialty');
     
   }
   
   public function edit($id){
-    
-    $specialty = $this->specialty->findOrFail($id);
+
+    $specialty = $this->specialty->with('objects')->findOrFail($id);
     
     return compact('specialty');
   }

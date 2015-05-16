@@ -3,20 +3,19 @@
 @section('main')
 
 
-@include('back.partials.entete', ['title' => trans('back/objects.dashboard'), 'icone' => 'user', 'fil' => link_to('objects', trans('back/objects.Users')) . ' / ' . trans('back/objects.edition')])
+@include('back.partials.entete', ['title' => trans('back/lection.dashboard'), 'icone' => 'user', 'fil' => link_to('objects', trans('back/lection.Users')) . ' / ' . trans('back/lection.edition')])
 
 
 
 <div class="col-sm-12">
-	{!! Form::model($object, ['route' => ['objects.update', $object->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
-    {!! Form::control('text', 0, 'name', $errors, trans('back/objects.name')) !!}
-  	{!! Form::selection('specialty_id', $select, null, trans('back/objects.specialty')) !!}
-    {!! Form::selection('user_id', $select_user, null, trans('back/objects.user')) !!}
-    {!! Form::control('textarea', 0, 'description', $errors, trans('back/objects.description')) !!}
+	{!! Form::model($lection, ['route' => ['lection.update', $lection->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
+    {!! Form::control('text', 0, 'title', $errors, trans('back/lection.name')) !!}
+    {!! Form::selection('objects_id', $select, null, trans('back/lection.nameobjects')) !!}
+    {!! Form::control('textarea', 0, 'summary', $errors, trans('back/lection.summary')) !!}
 		
-  {!! Form::submit(trans('front/form.send')) !!}
-  {!! Form::close() !!}
-	</div>
+    {!! Form::submit(trans('front/form.send')) !!}
+    {!! Form::close() !!}
+</div>
 
 
 @stop
@@ -50,7 +49,7 @@
             ]
         };
 
-        CKEDITOR.replace( 'description', config);
+        CKEDITOR.replace( 'summary', config);
 
 
 

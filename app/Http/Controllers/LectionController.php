@@ -3,6 +3,8 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Repositories\LectionRepository;
+use App\Http\Requests\LectionCreateRequest;
+use App\Http\Requests\LectionUpdateRequest;
 
 use Illuminate\Http\Request;
 
@@ -45,7 +47,8 @@ class LectionController extends Controller
      */
     public function create()
     {
-        //
+
+        return view('back.lection.create',$this->lection_gestion->create());
     }
 
     /**
@@ -53,9 +56,12 @@ class LectionController extends Controller
      *
      * @return Response
      */
-    public function store()
+    public function store(LectionCreateRequest $request)
     {
-        //
+        $this->lection_gestion->store($request->all());
+
+        return redirect('lection')->with('ok', trans('back/lection.created'));
+
     }
 
     /**
@@ -66,7 +72,7 @@ class LectionController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('back.lection.show',  $this->lection_gestion->show($id));
     }
 
     /**
@@ -77,7 +83,7 @@ class LectionController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('back.lection.edit',  $this->lection_gestion->edit($id));
     }
 
     /**
@@ -86,9 +92,11 @@ class LectionController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function update($id)
+    public function update(LectionUpdateRequest $request, $id)
     {
-        //
+        $this->lection_gestion->update($request->all(), $id);
+
+        return redirect('lection')->with('ok', trans('back/lection.updated'));
     }
 
     /**

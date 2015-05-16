@@ -1,16 +1,26 @@
 <?php namespace App\Repositories;
 
 use  App\Models\Objects, App\Models\Specialty, App\Models\User;
+use App\Repositories\UserRepository;
+use App\Services\Medias;
 
 class ObjectRepository extends BaseRepository
 {
 
 
-    public function __construct(Objects $objects, Specialty $specialty, User $user)
+    /**
+     * The UserRepository instance.
+     *
+     * @var App\Repositories\UserRepository
+     */
+    protected $user_gestion;
+
+    public function __construct(Objects $objects, Specialty $specialty, User $user,UserRepository $user_gestion)
     {
         $this->model = $objects;
         $this->specialty = $specialty;
         $this->user = $user;
+        $this->user_gestion = $user_gestion;
 
     }
 
@@ -24,7 +34,7 @@ class ObjectRepository extends BaseRepository
     public function show($id)
     {
 
-        $object = $this->model->findOrFail($id);
+        $object = $this->model->with('lection')->findOrFail($id);
 
 
         return compact('object');
@@ -45,6 +55,7 @@ class ObjectRepository extends BaseRepository
     {
         $object->name = $inputs['name'];
         $object->user_id = $inputs['user_id'];
+        $object->description = $inputs['description'];
         $object->save();
 
         $object->specialty()->attach($inputs['specialty_id']);
@@ -67,8 +78,9 @@ class ObjectRepository extends BaseRepository
 
         $select = $this->specialty->all()->lists('name', 'id');
         $select_user = $this->user->all()->lists('username', 'id');
+        $url = Medias::getUrl($this->user_gestion);
 
-        return compact('object', 'select', 'select_user');
+        return compact('object', 'select', 'select_user','url');
     }
 
 
@@ -77,7 +89,9 @@ class ObjectRepository extends BaseRepository
 
         $select = $this->specialty->all()->lists('name', 'id');
         $select_user = $this->user->all()->lists('username', 'id');
-        return compact('select', 'select_user');
+        $url = Medias::getUrl($this->user_gestion);
+
+        return compact('select', 'select_user','url');
     }
 
     public function counts()

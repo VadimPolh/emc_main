@@ -53,7 +53,7 @@ class AuthController extends Controller {
 
 		if ($this->auth->attempt($credentials, $request->has('memory')))
 		{
-			return redirect('/');
+			return redirect('/')->with('ok','login');
 		}
 
 		return redirect('/')

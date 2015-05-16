@@ -3,7 +3,7 @@
 return [
 	'dashboard' => 'Список лекций',
 	'users' => 'Лекции',
-  'user' => 'Преподователь',
+  	'user' => 'Преподователь',
 	'add' => 'Добавить лекцию',
 	'all' => 'Все',
 	'name' => 'Название',
@@ -12,7 +12,7 @@ return [
 	'see' => 'Просмотреть',
 	'edit' => 'Изменить',
 	'destroy' => 'Удалить',
-	'destroy-warning' => 'Really destroy this user ?',
+	'destroy-warning' => 'Действительно удалить лекцию?',
 	'fail' => 'Обновить не удалось.',
 	'creation' => 'Создание',
 	'Users' => 'Users',	
@@ -24,6 +24,9 @@ return [
 	'created' => 'Предмет создан',
 	'updated' => 'User updated.',
 	'destroyed' => 'Предмет удален',
-  'specialty' => 'Специальность',
-  'slug' => 'Урл'
+  	'specialty' => 'Специальность',
+  	'slug' => 'Урл',
+	'nameobjects' => 'Предмет',
+    'summary' => 'Содержимое лекции',
+	'description' => 'Описание предмета'
 ];

@@ -87,6 +87,7 @@ var CKBUILDER_CONFIG = {
 	},
 	languages : {
 		'en' : 1,
-		'fr' : 1
+		'fr' : 1,
+		'ru' : 1
 	}
 };
