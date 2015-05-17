@@ -73,6 +73,9 @@ Route::resource('user', 'UserController');
 Route::resource('specialty', 'SpecialtyController');
 Route::get('/content/specialty','SpecialtyController@index');
 
+
+Route::get('lection/{id}/edit/', 'LectionController@edit');
+
 //Objects
 Route::resource('objects','ObjectsController');
 Route::get('{spec}/{group}/{slug}', 'ObjectsController@showMain');
@@ -80,6 +83,7 @@ Route::get('{spec}/{group}/{slug}', 'ObjectsController@showMain');
 //Lection
 Route::resource('lection','LectionController');
 Route::get('{spec}/{group}/{slug}/{lection}', 'LectionController@showMain');
+
 
 //Groups
 Route::resource('groups','GroupsController');

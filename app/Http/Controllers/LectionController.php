@@ -80,17 +80,7 @@ class LectionController extends Controller
         return view('back.lection.show',  $this->lection_gestion->show($id));
     }
 
-    public function showMain($spec,$group,$object,$lection)
-    {
 
-        $user = \Auth::user();
-        $specialty = $this->specialty_gestion->all();
-        $obj = $this->object_gestion->getBySlug($object);
-        $lection = $this->lection_gestion->getBySlug($lection);
-
-
-        return view('front.inspinia.lection.show',compact('user','specialty','obj','lection'));
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -125,6 +115,18 @@ class LectionController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function showMain($spec,$group,$object,$lections)
+    {
+
+        $user = \Auth::user();
+        $specialty = $this->specialty_gestion->all();
+        $obj = $this->object_gestion->getBySlug($object);
+        $lection = $this->lection_gestion->getBySlug($lections);
+
+
+        return view('front.inspinia.lection.show',compact('user','specialty','obj','lection'));
     }
 
 }
