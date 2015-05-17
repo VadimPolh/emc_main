@@ -27,17 +27,17 @@
     @include('front.inspinia.partial.topBar')
     @yield('main')
   
-  </div>
 
-<!--   <div class="footer">
+
+   <div class="footer">
             <div class="pull-right">
-                10GB of <strong>250GB</strong> Free.
+                249GB из <strong>250GB</strong> Доступно.
             </div>
             <div>
-                <strong>Copyright</strong> Example Company © 2014-2015
+                <strong>Колледж Бизнесса и Права</strong> Полх Вадим © 2014-2015
             </div>
-        </div> -->
-
+        </div>
+  </div>
 {!! HTML::script('inspinia/js/jquery-2.1.1.js') !!}
 {!! HTML::script('inspinia/js/bootstrap.min.js') !!}
 {!! HTML::script('inspinia/js/plugins/iCheck/icheck.min.js') !!}

@@ -20,7 +20,7 @@
   <div id="tri" class="btn-group btn-group-sm">
     <a href="#" type="button" name="total" class="btn btn-default active">{{ trans('back/users.all') }} <span class="badge">{{  $counts['total'] }}</span></a>
     @foreach ($roles as $role)
-      <a href="#" type="button" name="{!! $role->slug !!}" class="btn btn-default">{{ $role->title . 's' }} <span class="badge">{{ $counts[$role->slug] }}</span></a>
+      <a href="#" type="button" name="{!! $role->slug !!}" class="btn btn-default">{{ $role->title }} <span class="badge">{{ $counts[$role->slug] }}</span></a>
     @endforeach
   </div>
 

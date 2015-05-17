@@ -39,7 +39,7 @@ class SpecialtyController extends Controller {
 	public function index()
 	{
     $counts = $this->specialty_gestion->counts();
-    $specialty = $this->specialty_gestion->index(4);
+    $specialty = $this->specialty_gestion->index(10);
     $links = str_replace('/?', '?', $specialty->render());
     
 		

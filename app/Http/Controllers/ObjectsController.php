@@ -87,11 +87,12 @@ class ObjectsController extends Controller {
 		return view('back.objects.show',  $this->object_gestion->show($id));
 	}
 
-  public function showMain($slug){
+  public function showMain($spec,$group,$slug){
     
     $user = \Auth::user();
     $specialty = $this->specialty_gestion->all();
     $object = $this->object_gestion->getBySlug($slug);
+
     
  
       

@@ -61,8 +61,9 @@
                     @if(count($spec->objects) != 0)
                         <ul class="nav nav-second-level">
                             @foreach($spec->objects as $object)
-                                <li {!! Request::is("objects/show/$object->slug") ? 'class="active current-child"' : '' !!}>
-                                <a href="/objects/show/{{$object->slug}}">{{$object->name}}</a>
+                                <?php $group = DB::table('groups')->where('id', $user->groups_id)->pluck('slug')?>
+                                <li {!! Request::is("$spec->slug/$group/$object->slug") ? 'class="active current-child"' : '' !!}>
+                                <a href="/{{$spec->slug}}/{{$group}}/{{$object->slug}}">{{$object->name}}</a>
                 </li>
             @endforeach
         </ul>

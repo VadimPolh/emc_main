@@ -12,7 +12,7 @@
                 <a href="/">Главная</a>
             </li>
             <li>
-                <a href="/">{{$object -> specialty[0] -> name}}</a>
+                <a href="/{{$object -> specialty[0] -> slug}}">{{$object -> specialty[0] -> name}}</a>
             </li>
             <li class="active">
                 <strong>{{$object -> name}}</strong>
@@ -24,31 +24,32 @@
 </div>
 
 
+    <div class="row animated fadeInRight">
 <div class="col-lg-4 lection-list">
     <div class="ibox float-e-margins">
         <div class="ibox-title">
-            <h5>Лекции</h5>
+            <h5>Лекции<span class="label label-warning-light" style="float: right;">{{count($object->lection)}}</span></h5>
             <div class="ibox-tools">
                 <a class="collapse-link">
                     <i class="fa fa-chevron-left"></i>
                 </a>
-                <span class="label label-warning-light">{{count($object->lection)}}</span>
+
             </div>
         </div>
         <div class="ibox-content">
 
             <div>
                 <div class="feed-activity-list">
-
+                    <?php $i = 1?>
                     @foreach($object->lection as $lection)
-                        <?php $i = 1?>
+
 
                             <div class="feed-element">
-                        <a href="objects/show/{{$object->slug}}/{{$lection->slug}}" class="pull-left">
+                        <a href="/{{$object -> specialty[0] -> slug}}/show/{{$object->slug}}/{{$lection->slug}}" class="pull-left">
                             <div class="randomize-box">{{$i}}</div>
                         </a>
                         <div class="media-body" style="  margin-top: 6px;">
-                            <a href="/objects/show/{{$object->slug}}/{{$lection->slug}}">  <strong>{{$lection->title}}</strong></a>
+                            <a href="/{{$object -> specialty[0] -> slug}}/show/{{$object->slug}}/{{$lection->slug}}">  <strong>{{$lection->title}}</strong></a>
                         </div>
                         </div>
                         <?php $i++;?>
@@ -71,17 +72,13 @@
 
 
 
-
-
-
-
 <div class="col-lg-8 object-description">
                     <div class="ibox">
                         <div class="ibox-content">
                             <div class="pull-right">
-                                <button class="btn btn-white btn-xs" type="button">Model</button>
-                                <button class="btn btn-white btn-xs" type="button">Publishing</button>
-                                <button class="btn btn-white btn-xs" type="button">Modern</button>
+                                {{--<button class="btn btn-white btn-xs" type="button">Model</button>--}}
+                                {{--<button class="btn btn-white btn-xs" type="button">Publishing</button>--}}
+                                {{--<button class="btn btn-white btn-xs" type="button">Modern</button>--}}
                             </div>
                             <div class="text-center article-title">
                             
@@ -108,7 +105,7 @@
                 </div>
 
 
-
+    </div>
 
 
 
@@ -120,7 +117,6 @@
 
 @section('scripts')
    <script>
-    // random color generator by mtf
 
     var safeColors = ['00','33','66','99','cc','ff'];
     var rand = function() {

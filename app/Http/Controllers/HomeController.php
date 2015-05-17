@@ -43,9 +43,9 @@ class HomeController extends Controller {
 	{
     if (\Auth::check()){
       
-    $this->user_gestion = $user_gestion;
+    	$this->user_gestion = $user_gestion;
 		$this->blog_gestion = $blog_gestion;
-    $this->specialty_gestion = $specialty_gestion;
+    	$this->specialty_gestion = $specialty_gestion;
 		$this->nbrPages = 50;
 
 		$this->middleware('redac', ['except' => ['indexFront', 'show', 'tag', 'search']]);

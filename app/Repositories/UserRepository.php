@@ -1,6 +1,6 @@
 <?php namespace App\Repositories;
 
-use App\Models\User, App\Models\Role;
+use App\Models\User, App\Models\Role, App\Models\Groups;
 use File, Auth;
 
 class UserRepository extends BaseRepository{
@@ -21,10 +21,12 @@ class UserRepository extends BaseRepository{
 	 */
 	public function __construct(
 		User $user, 
-		Role $role)
+		Role $role,
+		Groups $groups)
 	{
 		$this->model = $user;
 		$this->role = $role;
+		$this->groups = $groups;
 	}
 
 	/**
@@ -129,9 +131,10 @@ class UserRepository extends BaseRepository{
 	public function create()
 	{
 		$select = $this->role->all()->lists('title', 'id');
+		$group = $this->groups->all()->lists('name','id');
 		$statut = $this->getStatut();
 
-		return compact('select', 'statut');
+		return compact('select', 'statut','group');
 	}
 
 	/**

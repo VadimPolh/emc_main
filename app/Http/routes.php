@@ -75,10 +75,13 @@ Route::get('/content/specialty','SpecialtyController@index');
 
 //Objects
 Route::resource('objects','ObjectsController');
-Route::get('objects/show/{slug}', 'ObjectsController@showMain');
+Route::get('{spec}/{group}/{slug}', 'ObjectsController@showMain');
 
 //Lection
 Route::resource('lection','LectionController');
+
+//Groups
+Route::resource('groups','GroupsController');
 
 
 // Auth

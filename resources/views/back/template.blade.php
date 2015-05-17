@@ -84,7 +84,7 @@
                             <ul id="content_list" class="collapse">
                                 <li><a href="{!! url('content/specialty') !!}">{{ trans('back/admin.specialty') }}</a></li>
                                 <li><a href="{!! url('content/specializations') !!}">{{ trans('back/admin.specializations') }}</a></li>
-                                <li><a href="{!! url('content/specializations') !!}">{{ trans('back/admin.groups') }}</a></li>
+                                <li><a href="{!! url('groups') !!}">{{ trans('back/admin.groups') }}</a></li>
                             </ul>
                         </li>
                   <li {!! Request::is('objects/*') ? 'class="active"' : '' !!}>

@@ -1,0 +1,33 @@
+<?php
+
+return [
+	'dashboard' => 'Список груп',
+	'users' => 'Группы',
+  	'user' => 'Преподователь',
+	'add' => 'Добавить группу',
+	'all' => 'Все',
+	'name' => 'Название',
+	'role' => 'Роль',		
+	'seen' => 'Seen',
+	'see' => 'Просмотреть',
+	'edit' => 'Изменить',
+	'destroy' => 'Удалить',
+	'destroy-warning' => 'Действительно удалить лекцию?',
+	'fail' => 'Обновить не удалось.',
+	'creation' => 'Создание',
+	'Users' => 'Users',	
+	'email' => 'Email',
+	'password' => 'Password',
+	'confirm-password' => 'Confirm password',
+	'edition' => 'Edition',
+	'card' => 'Card',
+	'created' => 'Предмет создан',
+	'updated' => 'User updated.',
+	'destroyed' => 'Предмет удален',
+  	'specialty' => 'Специальность',
+  	'slug' => 'Урл',
+	'nameobjects' => 'Предмет',
+    'summary' => 'Содержимое лекции',
+	'description' => 'Описание предмета',
+	'mentor' => 'Куратор'
+];
