@@ -34,7 +34,6 @@ $(document).ready(function () {
     });
 
 
-    
     function SmoothlyMenu() {
     if (!$('body').hasClass('mini-navbar') || $('body').hasClass('body-small')) {
         // Hide menu in order to smoothly turn on when maximize menu
@@ -66,12 +65,45 @@ $(document).ready(function () {
     
     
     $('.current-child').parent('ul').parent('li').addClass('active');
-    $('.current-child').parent('ul').addClass('collapse in'); 
-  
-    
-    
+    $('.current-child').parent('ul').addClass('collapse in');
+
+
+
   
     
   
   
 });
+
+var timer;
+//ajax search
+
+function up(){
+
+    timer = setTimeout(function(){
+
+        var keywords = $('#top-search').val();
+
+
+
+
+        if (keywords.length > 0){
+            $('.search-title').html('Поиск по запросу <span class="text-navy">“'+ keywords +'”</span>');
+            $.post("/search",{keywords: keywords, _token: $('meta[name=_token]').attr('content')},function(markup){
+
+                $('.search-inner').html(markup);
+
+            });
+        }else{
+            $('.searchbox').hide();
+            $('.search-inner').html('<h2 class="search-title">Введите поисковый запрос...</h2>');
+        }
+
+
+    },500);
+}
+
+function down(){
+    $('.searchbox').show();
+
+}

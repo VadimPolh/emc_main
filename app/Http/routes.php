@@ -83,7 +83,7 @@ Route::get('{spec}/{group}/{slug}', 'ObjectsController@showMain');
 //Lection
 Route::resource('lection','LectionController');
 Route::get('{spec}/{group}/{slug}/{lection}', 'LectionController@showMain');
-
+Route::post('search', 'LectionController@search');
 
 //Groups
 Route::resource('groups','GroupsController');

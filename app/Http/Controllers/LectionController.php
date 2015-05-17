@@ -7,6 +7,7 @@ use App\Repositories\SpecialtyRepository;
 use App\Repositories\ObjectRepository;
 use App\Http\Requests\LectionCreateRequest;
 use App\Http\Requests\LectionUpdateRequest;
+use App\Models\Lection;
 
 use Illuminate\Http\Request;
 
@@ -80,6 +81,14 @@ class LectionController extends Controller
         return view('back.lection.show',  $this->lection_gestion->show($id));
     }
 
+    public function search(){
+
+        $keywords = \Input::get('keywords');
+        $result = Lection::search($keywords)->get();
+
+       return view('front.inspinia.search.result',compact('result','keywords'));
+
+    }
 
 
     /**
