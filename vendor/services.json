@@ -129,7 +129,9 @@
         "translator": "Illuminate\\Translation\\TranslationServiceProvider",
         "translation.loader": "Illuminate\\Translation\\TranslationServiceProvider",
         "html": "App\\Services\\Html\\HtmlServiceProvider",
-        "form": "App\\Services\\Html\\HtmlServiceProvider"
+        "form": "App\\Services\\Html\\HtmlServiceProvider",
+        "Collective\\Html\\HtmlBuilder": "App\\Services\\Html\\HtmlServiceProvider",
+        "Collective\\Html\\FormBuilder": "App\\Services\\Html\\HtmlServiceProvider"
     },
     "when": {
         "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider": [

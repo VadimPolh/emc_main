@@ -31,8 +31,8 @@ class ObjectsController extends Controller {
   public function __construct(ObjectRepository $object_gestion,UserRepository $user_gestion, SpecialtyRepository $specialty_gestion)
 	{
 		$this->object_gestion = $object_gestion;
-    $this->user_gestion = $user_gestion;
-    $this->specialty_gestion = $specialty_gestion;
+    	$this->user_gestion = $user_gestion;
+    	$this->specialty_gestion = $specialty_gestion;
 	}
   
   

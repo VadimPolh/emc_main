@@ -3,6 +3,8 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Repositories\LectionRepository;
+use App\Repositories\SpecialtyRepository;
+use App\Repositories\ObjectRepository;
 use App\Http\Requests\LectionCreateRequest;
 use App\Http\Requests\LectionUpdateRequest;
 
@@ -20,9 +22,12 @@ class LectionController extends Controller
     protected $object_gestion;
 
 
-    public function __construct(LectionRepository $lection_gestion)
+    public function __construct(LectionRepository $lection_gestion,SpecialtyRepository $specialty_gestion, ObjectRepository $object_gestion)
     {
         $this->lection_gestion = $lection_gestion;
+        $this->specialty_gestion = $specialty_gestion;
+        $this->object_gestion = $object_gestion;
+
     }
 
 
@@ -73,6 +78,18 @@ class LectionController extends Controller
     public function show($id)
     {
         return view('back.lection.show',  $this->lection_gestion->show($id));
+    }
+
+    public function showMain($spec,$group,$object,$lection)
+    {
+
+        $user = \Auth::user();
+        $specialty = $this->specialty_gestion->all();
+        $obj = $this->object_gestion->getBySlug($object);
+        $lection = $this->lection_gestion->getBySlug($lection);
+
+
+        return view('front.inspinia.lection.show',compact('user','specialty','obj','lection'));
     }
 
     /**

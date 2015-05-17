@@ -24,7 +24,7 @@
 <div id="wrapper">
   @include('front.inspinia.partial.menu')
   <div id="page-wrapper" class="gray-bg dashbard-1">
-    @include('front.inspinia.partial.topBar')
+    @include('front.inspinia.partial.topBar')@include('front.inspinia.partial.search')
     @yield('main')
   
 

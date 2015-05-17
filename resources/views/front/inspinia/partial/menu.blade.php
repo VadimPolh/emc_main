@@ -62,9 +62,9 @@
                         <ul class="nav nav-second-level">
                             @foreach($spec->objects as $object)
                                 <?php $group = DB::table('groups')->where('id', $user->groups_id)->pluck('slug')?>
-                                <li {!! Request::is("$spec->slug/$group/$object->slug") ? 'class="active current-child"' : '' !!}>
+                                <li {!! Request::is("$spec->slug/$group/$object->slug") || Request::is("$spec->slug/$group/$object->slug/*") ? 'class="active current-child"' : '' !!}>
                                 <a href="/{{$spec->slug}}/{{$group}}/{{$object->slug}}">{{$object->name}}</a>
-                </li>
+                                </li>
             @endforeach
         </ul>
 

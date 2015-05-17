@@ -80,6 +80,13 @@ class LectionRepository extends BaseRepository
     }
 
 
+    public function getBySlug($slug)
+    {
+
+        return Lection::findBySlug($slug);
+
+    }
+
     public function edit($id)
     {
         $lection = $this->getById($id);

@@ -41,15 +41,16 @@
             <div>
                 <div class="feed-activity-list">
                     <?php $i = 1?>
+                        <?php $group = DB::table('groups')->where('id', $user->groups_id)->pluck('slug')?>
                     @foreach($object->lection as $lection)
 
 
                             <div class="feed-element">
-                        <a href="/{{$object -> specialty[0] -> slug}}/show/{{$object->slug}}/{{$lection->slug}}" class="pull-left">
+                        <a href="/{{$object -> specialty[0] -> slug}}/{{$group}}/{{$object->slug}}/{{$lection->slug}}" class="pull-left">
                             <div class="randomize-box">{{$i}}</div>
                         </a>
                         <div class="media-body" style="  margin-top: 6px;">
-                            <a href="/{{$object -> specialty[0] -> slug}}/show/{{$object->slug}}/{{$lection->slug}}">  <strong>{{$lection->title}}</strong></a>
+                            <a href="/{{$object -> specialty[0] -> slug}}/{{$group}}/{{$object->slug}}/{{$lection->slug}}">  <strong>{{$lection->title}}</strong></a>
                         </div>
                         </div>
                         <?php $i++;?>
