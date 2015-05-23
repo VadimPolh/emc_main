@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\LectionRepository;
 use App\Repositories\SpecialtyRepository;
 use App\Repositories\ObjectRepository;
+use App\Repositories\AttachmentRepository;
 use App\Http\Requests\LectionCreateRequest;
 use App\Http\Requests\LectionUpdateRequest;
 use App\Models\Lection;
@@ -18,16 +19,17 @@ class LectionController extends Controller
     /**
      * The LectionRepository instance.
      *
-     * @var App\Repositories\LectionRepository
+     * @var App\Repositories\ObjectRepository
      */
     protected $object_gestion;
 
 
-    public function __construct(LectionRepository $lection_gestion,SpecialtyRepository $specialty_gestion, ObjectRepository $object_gestion)
+    public function __construct(LectionRepository $lection_gestion,SpecialtyRepository $specialty_gestion, ObjectRepository $object_gestion , AttachmentRepository $attachment_gestion)
     {
         $this->lection_gestion = $lection_gestion;
         $this->specialty_gestion = $specialty_gestion;
         $this->object_gestion = $object_gestion;
+        $this->attachment_gestion = $attachment_gestion;
 
     }
 
@@ -55,6 +57,29 @@ class LectionController extends Controller
     {
 
         return view('back.lection.create',$this->lection_gestion->create());
+    }
+
+    public function upload(){
+
+
+        $author = \Input::get('user_id');
+        $file = \Input::file('file');
+        $type = \Input::get('type');
+        $id = \Input::get('id');
+        $folder = public_path('attachment'. '/' . $type . '/' . $id);
+
+        $filename = $file->getClientOriginalName();
+        $upload_success = \Request::file('file')->move($folder, $filename);
+
+        $this->attachment_gestion->save($filename,$folder.'/'.$filename,$author);
+
+
+        if( $upload_success ) {
+            return \Response::json('success', 200);
+        } else {
+            return \Response::json('error', 400);
+        }
+
     }
 
     /**

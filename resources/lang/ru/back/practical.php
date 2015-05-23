@@ -1,0 +1,32 @@
+<?php
+
+return [
+	'dashboard' => 'Список практических',
+	'users' => 'Практические',
+  	'user' => 'Преподователь',
+	'add' => 'Добавить практическую',
+	'all' => 'Все',
+	'name' => 'Название',
+	'role' => 'Роль',		
+	'seen' => 'Seen',
+	'see' => 'Просмотреть',
+	'edit' => 'Изменить',
+	'destroy' => 'Удалить',
+	'destroy-warning' => 'Действительно удалить лекцию?',
+	'fail' => 'Обновить не удалось.',
+	'creation' => 'Создание',
+	'Users' => 'Users',	
+	'email' => 'Email',
+	'password' => 'Password',
+	'confirm-password' => 'Confirm password',
+	'edition' => 'Edition',
+	'card' => 'Card',
+	'created' => 'Предмет создан',
+	'updated' => 'User updated.',
+	'destroyed' => 'Предмет удален',
+  	'specialty' => 'Специальность',
+  	'slug' => 'Урл',
+	'nameobjects' => 'Предмет',
+    'summary' => 'Содержимое лекции',
+	'description' => 'Описание предмета'
+];

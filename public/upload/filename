@@ -1,0 +1,275 @@
+unit LanDocs2Exchange_TLB;
+
+// ************************************************************************ //
+// WARNING                                                                    
+// -------                                                                    
+// The types declared in this file were generated from data read from a       
+// Type Library. If this type library is explicitly or indirectly (via        
+// another type library referring to this type library) re-imported, or the   
+// 'Refresh' command of the Type Library Editor activated while editing the   
+// Type Library, the contents of this file will be regenerated and all        
+// manual modifications will be lost.                                         
+// ************************************************************************ //
+
+// PASTLWTR : $Revision:   1.88.1.0.1.0  $
+// File generated on 16.04.04 16:29:45 from Type Library described below.
+
+// ************************************************************************ //
+// Type Lib: D:\ExchSrv\LanDocs2Exchange\LanDocs2Exchange.tlb (1)
+// IID\LCID: {C58ECC31-1EC0-11D6-AE65-00104B5B6003}\0
+// Helpfile: 
+// DepndLst: 
+//   (1) v2.0 stdole, (C:\WINNT\System32\StdOle2.Tlb)
+//   (2) v4.0 StdVCL, (C:\WINNT\System32\STDVCL40.DLL)
+// ************************************************************************ //
+{$TYPEDADDRESS OFF} // Unit must be compiled without type-checked pointers. 
+interface
+
+uses Windows, ActiveX, Classes, Graphics, OleServer, OleCtrls, StdVCL;
+
+// *********************************************************************//
+// GUIDS declared in the TypeLibrary. Following prefixes are used:        
+//   Type Libraries     : LIBID_xxxx                                      
+//   CoClasses          : CLASS_xxxx                                      
+//   DISPInterfaces     : DIID_xxxx                                       
+//   Non-DISP interfaces: IID_xxxx                                        
+// *********************************************************************//
+const
+  // TypeLibrary Major and minor versions
+  LanDocs2ExchangeMajorVersion = 1;
+  LanDocs2ExchangeMinorVersion = 0;
+
+  LIBID_LanDocs2Exchange: TGUID = '{C58ECC31-1EC0-11D6-AE65-00104B5B6003}';
+
+  IID_ILDExchange: TGUID = '{C58ECC32-1EC0-11D6-AE65-00104B5B6003}';
+  CLASS_LDExchange: TGUID = '{C58ECC34-1EC0-11D6-AE65-00104B5B6003}';
+  IID_ILDExchangeEvents: TGUID = '{D6D19ED3-E263-11D6-AF2E-00104B5B6003}';
+
+// *********************************************************************//
+// Declaration of Enumerations defined in Type Library                    
+// *********************************************************************//
+// Constants for enum TExportOption
+type
+  TExportOption = TOleEnum;
+const
+  eoDoNotExportMessages = $00000001;
+  eoExportByRef = $00000002;
+  eoExportFileUID = $00000004;
+  eoDoNotExportRefDesc = $00000008;
+  eoExportOneMessageOnly = $00000010;
+  eoResetDocAccessLevel = $00000020;
+  eoIgnoreRef = $00000040;
+
+// Constants for enum TLogLevel
+type
+  TLogLevel = TOleEnum;
+const
+  llDisableLog = $00000000;
+  llEnableLog = $00000001;
+  llEnableDetailedLog = $00000002;
+
+// Constants for enum TImportOption
+type
+  TImportOption = TOleEnum;
+const
+  ioForceUpdate = $00000001;
+  ioDoNotShowRegCard = $00000002;
+  ioSkipUpdate = $00000004;
+  ioDisableDocN = $00000008;
+  ioAutoRenameOperType = $00000010;
+
+// Constants for enum TImportObjectQueryResult
+type
+  TImportObjectQueryResult = TOleEnum;
+const
+  ioqrImportObject = $00000000;
+  ioqrDoNotImportObject = $00000001;
+  ioqrAskUser = $00000002;
+
+type
+
+// *********************************************************************//
+// Forward declaration of types defined in TypeLibrary                    
+// *********************************************************************//
+  ILDExchange = interface;
+  ILDExchangeDisp = dispinterface;
+  ILDExchangeEvents = interface;
+  ILDExchangeEventsDisp = dispinterface;
+
+// *********************************************************************//
+// Declaration of CoClasses defined in Type Library                       
+// (NOTE: Here we map each CoClass to its Default Interface)              
+// *********************************************************************//
+  LDExchange = ILDExchange;
+
+
+// *********************************************************************//
+// Interface: ILDExchange
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {C58ECC32-1EC0-11D6-AE65-00104B5B6003}
+// *********************************************************************//
+  ILDExchange = interface(IDispatch)
+    ['{C58ECC32-1EC0-11D6-AE65-00104B5B6003}']
+    procedure Connect; safecall;
+    procedure Disconnect; safecall;
+    function  Get_IsConnected: WordBool; safecall;
+    function  ExportObjects(const ObjectIds: WideString): WideString; safecall;
+    procedure ImportObjects(const Xml: WideString); safecall;
+    function  ImportDocument(const Xml: WideString; JournalId: Integer): Integer; safecall;
+    function  Get_ClientSystem: Integer; safecall;
+    procedure Set_ClientSystem(Value: Integer); safecall;
+    function  Get_DBType: WideString; safecall;
+    procedure Set_DBType(const Value: WideString); safecall;
+    function  Get_DBAlias: WideString; safecall;
+    procedure Set_DBAlias(const Value: WideString); safecall;
+    function  Get_DBLogin: WideString; safecall;
+    procedure Set_DBLogin(const Value: WideString); safecall;
+    function  Get_DBPassword: WideString; safecall;
+    procedure Set_DBPassword(const Value: WideString); safecall;
+    function  Get_DSName: WideString; safecall;
+    procedure Set_DSName(const Value: WideString); safecall;
+    function  Get_DSPort: Integer; safecall;
+    procedure Set_DSPort(Value: Integer); safecall;
+    function  Get_DSProtocol: Integer; safecall;
+    procedure Set_DSProtocol(Value: Integer); safecall;
+    function  Get_DSDataReceiveTimeOut: Integer; safecall;
+    procedure Set_DSDataReceiveTimeOut(Value: Integer); safecall;
+    function  Get_DSDataSendTimeOut: Integer; safecall;
+    procedure Set_DSDataSendTimeOut(Value: Integer); safecall;
+    function  Get_FileLocation: WideString; safecall;
+    procedure Set_FileLocation(const Value: WideString); safecall;
+    function  Get_Session: Integer; safecall;
+    procedure Set_Session(Value: Integer); safecall;
+    function  ExportDocument(ObjectId: Integer; out Description: WideString; 
+                             out FileNames: WideString): WideString; safecall;
+    function  ExportManuals(const ObjectTypeIds: WideString): WideString; safecall;
+    function  Get_ExportOptions: Integer; safecall;
+    procedure Set_ExportOptions(Value: Integer); safecall;
+    function  ExportObject(ObjectId: Integer; out Description: WideString): WideString; safecall;
+    function  Get_LogLevel: TLogLevel; safecall;
+    procedure Set_LogLevel(Value: TLogLevel); safecall;
+    function  Get_LogFile: WideString; safecall;
+    procedure Set_LogFile(const Value: WideString); safecall;
+    function  Get_EnableSecurity: WordBool; safecall;
+    procedure Set_EnableSecurity(Value: WordBool); safecall;
+    procedure SetEvents(const Events: ILDExchangeEvents); safecall;
+    procedure ExportManualsToFile(const ObjectTypeIds: WideString; const FileName: WideString); safecall;
+    procedure ImportObjectsFromFile(const FileName: WideString); safecall;
+    function  Get_ImportOptions: Integer; safecall;
+    procedure Set_ImportOptions(Value: Integer); safecall;
+    function  ImportObject(const Xml: WideString): Integer; safecall;
+    function  ImportDocument2(const Xml: WideString; JournalId: Integer): Integer; safecall;
+    property IsConnected: WordBool read Get_IsConnected;
+    property ClientSystem: Integer read Get_ClientSystem write Set_ClientSystem;
+    property DBType: WideString read Get_DBType write Set_DBType;
+    property DBAlias: WideString read Get_DBAlias write Set_DBAlias;
+    property DBLogin: WideString read Get_DBLogin write Set_DBLogin;
+    property DBPassword: WideString read Get_DBPassword write Set_DBPassword;
+    property DSName: WideString read Get_DSName write Set_DSName;
+    property DSPort: Integer read Get_DSPort write Set_DSPort;
+    property DSProtocol: Integer read Get_DSProtocol write Set_DSProtocol;
+    property DSDataReceiveTimeOut: Integer read Get_DSDataReceiveTimeOut write Set_DSDataReceiveTimeOut;
+    property DSDataSendTimeOut: Integer read Get_DSDataSendTimeOut write Set_DSDataSendTimeOut;
+    property FileLocation: WideString read Get_FileLocation write Set_FileLocation;
+    property Session: Integer read Get_Session write Set_Session;
+    property ExportOptions: Integer read Get_ExportOptions write Set_ExportOptions;
+    property LogLevel: TLogLevel read Get_LogLevel write Set_LogLevel;
+    property LogFile: WideString read Get_LogFile write Set_LogFile;
+    property EnableSecurity: WordBool read Get_EnableSecurity write Set_EnableSecurity;
+    property ImportOptions: Integer read Get_ImportOptions write Set_ImportOptions;
+  end;
+
+// *********************************************************************//
+// DispIntf:  ILDExchangeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {C58ECC32-1EC0-11D6-AE65-00104B5B6003}
+// *********************************************************************//
+  ILDExchangeDisp = dispinterface
+    ['{C58ECC32-1EC0-11D6-AE65-00104B5B6003}']
+    procedure Connect; dispid 1;
+    procedure Disconnect; dispid 2;
+    property IsConnected: WordBool readonly dispid 3;
+    function  ExportObjects(const ObjectIds: WideString): WideString; dispid 4;
+    procedure ImportObjects(const Xml: WideString); dispid 5;
+    function  ImportDocument(const Xml: WideString; JournalId: Integer): Integer; dispid 6;
+    property ClientSystem: Integer dispid 7;
+    property DBType: WideString dispid 8;
+    property DBAlias: WideString dispid 9;
+    property DBLogin: WideString dispid 10;
+    property DBPassword: WideString dispid 11;
+    property DSName: WideString dispid 12;
+    property DSPort: Integer dispid 13;
+    property DSProtocol: Integer dispid 14;
+    property DSDataReceiveTimeOut: Integer dispid 15;
+    property DSDataSendTimeOut: Integer dispid 16;
+    property FileLocation: WideString dispid 18;
+    property Session: Integer dispid 17;
+    function  ExportDocument(ObjectId: Integer; out Description: WideString; 
+                             out FileNames: WideString): WideString; dispid 19;
+    function  ExportManuals(const ObjectTypeIds: WideString): WideString; dispid 20;
+    property ExportOptions: Integer dispid 21;
+    function  ExportObject(ObjectId: Integer; out Description: WideString): WideString; dispid 23;
+    property LogLevel: TLogLevel dispid 24;
+    property LogFile: WideString dispid 25;
+    property EnableSecurity: WordBool dispid 26;
+    procedure SetEvents(const Events: ILDExchangeEvents); dispid 27;
+    procedure ExportManualsToFile(const ObjectTypeIds: WideString; const FileName: WideString); dispid 28;
+    procedure ImportObjectsFromFile(const FileName: WideString); dispid 22;
+    property ImportOptions: Integer dispid 29;
+    function  ImportObject(const Xml: WideString): Integer; dispid 30;
+    function  ImportDocument2(const Xml: WideString; JournalId: Integer): Integer; dispid 31;
+  end;
+
+// *********************************************************************//
+// Interface: ILDExchangeEvents
+// Flags:     (320) Dual OleAutomation
+// GUID:      {D6D19ED3-E263-11D6-AF2E-00104B5B6003}
+// *********************************************************************//
+  ILDExchangeEvents = interface(IUnknown)
+    ['{D6D19ED3-E263-11D6-AF2E-00104B5B6003}']
+    procedure OnCreateObject(ObjId: Integer; const ObjType: WideString); safecall;
+    function  OnUpdateObjectQuery(ObjId: Integer; const ObjType: WideString; 
+                                  const OldObjXml: WideString; const ObjXml: WideString): TImportObjectQueryResult; safecall;
+    function  OnCreateObjectQuery(const ObjType: WideString; const ObjXml: WideString): TImportObjectQueryResult; safecall;
+  end;
+
+// *********************************************************************//
+// DispIntf:  ILDExchangeEventsDisp
+// Flags:     (320) Dual OleAutomation
+// GUID:      {D6D19ED3-E263-11D6-AF2E-00104B5B6003}
+// *********************************************************************//
+  ILDExchangeEventsDisp = dispinterface
+    ['{D6D19ED3-E263-11D6-AF2E-00104B5B6003}']
+    procedure OnCreateObject(ObjId: Integer; const ObjType: WideString); dispid 1;
+    function  OnUpdateObjectQuery(ObjId: Integer; const ObjType: WideString; 
+                                  const OldObjXml: WideString; const ObjXml: WideString): TImportObjectQueryResult; dispid 2;
+    function  OnCreateObjectQuery(const ObjType: WideString; const ObjXml: WideString): TImportObjectQueryResult; dispid 3;
+  end;
+
+// *********************************************************************//
+// The Class CoLDExchange provides a Create and CreateRemote method to          
+// create instances of the default interface ILDExchange exposed by              
+// the CoClass LDExchange. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
+// *********************************************************************//
+  CoLDExchange = class
+    class function Create: ILDExchange;
+    class function CreateRemote(const MachineName: string): ILDExchange;
+  end;
+
+implementation
+
+uses ComObj;
+
+class function CoLDExchange.Create: ILDExchange;
+begin
+  Result := CreateComObject(CLASS_LDExchange) as ILDExchange;
+end;
+
+class function CoLDExchange.CreateRemote(const MachineName: string): ILDExchange;
+begin
+  Result := CreateRemoteComObject(MachineName, CLASS_LDExchange) as ILDExchange;
+end;
+
+end.

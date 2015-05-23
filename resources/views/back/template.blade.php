@@ -87,12 +87,13 @@
                                 <li><a href="{!! url('groups') !!}">{{ trans('back/admin.groups') }}</a></li>
                             </ul>
                         </li>
+                  
                   <li {!! Request::is('objects/*') ? 'class="active"' : '' !!}>
                             <a href="{!! url('objects') !!}"><span class="fa fa-fw fa-book"></span> {{ trans('back/admin.objects') }}</a>
                         </li>
-                  <li {!! Request::is('lection/*') ? 'class="active"' : '' !!}>
-                            <a href="{!! url('lection') !!}"><span class="fa fa-file-text"></span> &nbsp {{ trans('back/admin.lection') }}</a>
-                        </li>  
+                  
+                      @include('back.partials.menu.material')
+                  
                   <li {!! Request::is('contact') ? 'class="active"' : '' !!}>
                             <a href="{!! url('contact') !!}"><span class="fa fa-fw fa-envelope"></span> {{ trans('back/admin.messages') }}</a>
                         </li>

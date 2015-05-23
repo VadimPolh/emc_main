@@ -82,8 +82,14 @@ Route::get('{spec}/{group}/{slug}', 'ObjectsController@showMain');
 
 //Lection
 Route::resource('lection','LectionController');
-Route::get('{spec}/{group}/{slug}/{lection}', 'LectionController@showMain');
+Route::post('lection/upload','LectionController@upload');
+Route::get('{spec}/{group}/{slug}/lection/{lection}', 'LectionController@showMain');
 Route::post('search', 'LectionController@search');
+
+//Practicals
+Route::resource('practical','PracticalController');
+
+
 
 //Groups
 Route::resource('groups','GroupsController');

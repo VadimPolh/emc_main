@@ -5,6 +5,9 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as BaseVerifier;
 
 class VerifyCsrfToken extends BaseVerifier {
 
+	private $openRoutes = ['lection/upload'];
+
+
 	/**
 	 * Handle an incoming request.
 	 *
@@ -14,7 +17,14 @@ class VerifyCsrfToken extends BaseVerifier {
 	 */
 	public function handle($request, Closure $next)
 	{
-		return parent::handle($request, $next);
+
+		if(in_array($request->path(), $this->openRoutes)){
+			return $next($request);
+		}else{
+			return parent::handle($request, $next);
+		}
 	}
+
+
 
 }
