@@ -21,12 +21,14 @@ return [
 	'confirm-password' => 'Confirm password',
 	'edition' => 'Edition',
 	'card' => 'Card',
-	'created' => 'Предмет создан',
+	'created' => 'Практическая создана',
 	'updated' => 'User updated.',
 	'destroyed' => 'Предмет удален',
   	'specialty' => 'Специальность',
   	'slug' => 'Урл',
 	'nameobjects' => 'Предмет',
     'summary' => 'Содержимое лекции',
-	'description' => 'Описание предмета'
+	'description' => 'Описание предмета',
+	'topics' => 'Тема',
+	'lections' => 'Практическая к'
 ];

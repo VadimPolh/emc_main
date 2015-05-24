@@ -11,12 +11,17 @@ class AttachmentRepository extends BaseRepository{
     }
 
 
-    public function save($name,$path,$user)
+    public function save($name,$path,$user,$type,$id)
     {
         $attachment = new $this->model;
         $attachment->name = $name;
         $attachment->path = $path;
         $attachment->user_id = $user;
+
+        if ($type == "lection"){
+            $attachment->lection_id = $id;
+        }
+
         $attachment->save();
 
         return $attachment;

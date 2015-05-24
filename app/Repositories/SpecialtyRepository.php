@@ -68,7 +68,12 @@ class SpecialtyRepository extends BaseRepository{
 
 		$this->save($specialty, $inputs);
 	}
-  
-  
+
+  public function getBySlug($slug)
+  {
+
+    return Specialty::findBySlug($slug);
+
+  }
 
 }

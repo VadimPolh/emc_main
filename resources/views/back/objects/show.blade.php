@@ -7,11 +7,18 @@
     <p>Название : {{ $object->name}}</p>
     <p>Преподователь: {{$object->user->username}}</p>
 
-    <h3>Список лекций</h3>
+
+
+    <h3>Темы</h3>
+
+    <h3>Теоритический материал</h3>
     <?php $i=1 ?>
     @foreach ($object->lection as $lection)
     <p>{{$i}}. <a href="/lection/{{$lection->id}}">{{$lection->title}}</a></p>
     <?php $i++ ?>
     @endforeach
+
+    <h3>Практический материал</h3>
+
 
 @stop

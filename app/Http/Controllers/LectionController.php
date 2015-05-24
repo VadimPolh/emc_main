@@ -71,7 +71,7 @@ class LectionController extends Controller
         $filename = $file->getClientOriginalName();
         $upload_success = \Request::file('file')->move($folder, $filename);
 
-        $this->attachment_gestion->save($filename,$folder.'/'.$filename,$author);
+        $this->attachment_gestion->save($filename,$folder.'/'.$filename,$author,$type,$id);
 
 
         if( $upload_success ) {
@@ -148,7 +148,9 @@ class LectionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->lection_gestion->destroy($id);
+
+        return redirect('lection')->with('ok', trans('back/lection.destroyed'));
     }
 
     public function showMain($spec,$group,$object,$lections)

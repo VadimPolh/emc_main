@@ -46,6 +46,21 @@ class SpecialtyController extends Controller {
     return view('back.specialty.index',compact('counts','links','specialty'));
 	}
 
+	public function showSpecialty($spec){
+
+		$user = \Auth::user();
+		$specialty = $this->specialty_gestion->all();
+		$spc = $this->specialty_gestion->getBySlug($spec);
+
+		if ($spc != null){
+			return view('front.inspinia.specialty.show',compact('user','specialty','spc'));
+		}else{
+			return response(view('errors.404'), 404);
+		}
+
+
+	}
+
 	/**
 	 * Show the form for creating a new resource.
 	 *

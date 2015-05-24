@@ -1,7 +1,7 @@
 <?php namespace App\Repositories;
 
 
-use  App\Models\Objects, App\Models\Lection;
+use  App\Models\Objects, App\Models\Lection, App\Models\Topics;
 use App\Repositories\UserRepository;
 use App\Services\Medias;
 
@@ -23,11 +23,12 @@ class LectionRepository extends BaseRepository
      * @param Lection $lection
      * @param \App\Repositories\UserRepository $user_gestion
      */
-    public function __construct(Objects $objects, Lection $lection, UserRepository $user_gestion)
+    public function __construct(Objects $objects, Lection $lection, UserRepository $user_gestion,Topics $topics)
     {
         $this->objects = $objects;
         $this->model = $lection;
         $this->user_gestion = $user_gestion;
+        $this->topics = $topics;
 
     }
 
@@ -55,7 +56,10 @@ class LectionRepository extends BaseRepository
     public function create(){
         $select = $this->objects->all()->lists('name', 'id');
         $url = Medias::getUrl($this->user_gestion);
-        return compact('select','url');
+        $topics = $this->topics->all()->lists('name','id');
+
+
+        return compact('select','url','topics');
     }
 
     public function store($inputs)
@@ -72,6 +76,7 @@ class LectionRepository extends BaseRepository
         $lection->title = $inputs['title'];
         $lection->summary = $inputs['summary'];
         $lection->objects_id = $inputs['objects_id'];
+        $lection->topics_id =$inputs['topics_id'];
 
 
         $lection->save();
@@ -113,5 +118,9 @@ class LectionRepository extends BaseRepository
         $this->save($lection, $inputs);
     }
 
-
+    public function destroy($id)
+    {
+        $lection = $this->getById($id);
+        $lection->delete();
+    }
 }

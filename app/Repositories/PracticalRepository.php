@@ -1,7 +1,7 @@
 <?php namespace App\Repositories;
 
 
-use  App\Models\Objects, App\Models\Practical;
+use  App\Models\Objects, App\Models\Practical, App\Models\Topics, App\Models\Lection;
 use App\Repositories\UserRepository;
 use App\Services\Medias;
 
@@ -23,11 +23,14 @@ class PracticalRepository extends BaseRepository
      * @param Practical $Practical
      * @param \App\Repositories\UserRepository $user_gestion
      */
-    public function __construct(Objects $objects, Practical $Practical, UserRepository $user_gestion)
+    public function __construct(Objects $objects, Practical $Practical, UserRepository $user_gestion,Topics $topics,Lection $lection)
     {
         $this->objects = $objects;
         $this->model = $Practical;
         $this->user_gestion = $user_gestion;
+        $this->topics = $topics;
+        $this->lection = $lection;
+
 
     }
 
@@ -55,7 +58,10 @@ class PracticalRepository extends BaseRepository
     public function create(){
         $select = $this->objects->all()->lists('name', 'id');
         $url = Medias::getUrl($this->user_gestion);
-        return compact('select','url');
+        $topics = $this->topics->all()->lists('name','id');
+        $lections = $this->lection->all()->lists('title','id');
+
+        return compact('select','url','topics','lections');
     }
 
     public function store($inputs)
@@ -72,6 +78,8 @@ class PracticalRepository extends BaseRepository
         $Practical->title = $inputs['title'];
         $Practical->summary = $inputs['summary'];
         $Practical->objects_id = $inputs['objects_id'];
+        $Practical->topics_id = $inputs['topics_id'];
+        $Practical->lection_id = $inputs['lections_id'];
 
 
         $Practical->save();

@@ -74,11 +74,18 @@ Route::resource('specialty', 'SpecialtyController');
 Route::get('/content/specialty','SpecialtyController@index');
 
 
+
 Route::get('lection/{id}/edit/', 'LectionController@edit');
 
 //Objects
 Route::resource('objects','ObjectsController');
 Route::get('{spec}/{group}/{slug}', 'ObjectsController@showMain');
+
+//Topics
+Route::get('topics','TopicsController@index');
+Route::resource('api/topics','TopicsController');
+
+
 
 //Lection
 Route::resource('lection','LectionController');
@@ -100,3 +107,6 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+
+Route::get('/{specialty}','SpecialtyController@showSpecialty');

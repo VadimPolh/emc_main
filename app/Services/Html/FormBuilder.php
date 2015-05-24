@@ -48,7 +48,7 @@ class FormBuilder extends \Collective\Html\FormBuilder {
 	public function selection($nom, $list = [], $selected = null, $label = null)
 	{
 		return sprintf('
-			<div class="form-group" style="width:200px;">
+			<div class="form-group" style="width:365px;">
 				%s
 			  %s
 			</div>',

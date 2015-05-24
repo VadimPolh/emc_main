@@ -15,18 +15,19 @@ return [
 	'destroy-warning' => 'Действительно удалить лекцию?',
 	'fail' => 'Обновить не удалось.',
 	'creation' => 'Создание',
-	'Users' => 'Users',	
+	'Users' => 'Лекции',
 	'email' => 'Email',
 	'password' => 'Password',
 	'confirm-password' => 'Confirm password',
-	'edition' => 'Edition',
+	'edition' => 'Изменение',
 	'card' => 'Card',
 	'created' => 'Предмет создан',
 	'updated' => 'User updated.',
-	'destroyed' => 'Предмет удален',
+	'destroyed' => 'Лекция удален',
   	'specialty' => 'Специальность',
   	'slug' => 'Урл',
 	'nameobjects' => 'Предмет',
     'summary' => 'Содержимое лекции',
-	'description' => 'Описание предмета'
+	'description' => 'Описание предмета',
+	'topics' => 'Тема'
 ];

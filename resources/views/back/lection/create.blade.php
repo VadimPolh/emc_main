@@ -10,15 +10,21 @@
 		{!! Form::open(['url' => 'lection', 'method' => 'post', 'class' => 'form-horizontal panel']) !!}
 		{!! Form::control('text', 0, 'title', $errors, trans('back/lection.name')) !!}
 		{!! Form::selection('objects_id', $select, null, trans('back/lection.nameobjects')) !!}
+		{!! Form::selection('topics_id', $topics, null, trans('back/lection.topics')) !!}
 		{!! Form::control('textarea', 0, 'summary', $errors, trans('back/lection.summary')) !!}
-
 
 
 
 		{!! Form::submit(trans('front/form.send')) !!}
 		{!! Form::close() !!}
 	</div>
-
+	<div class="col-sm-12">
+		<h3>Прикрепление файлов</h3>
+		<form action="{{ url('lection/upload')}}" class="dropzone" id="my-awesome-dropzone">
+			<input type="hidden" name="type" value="lection">
+			<input type="hidden" name="user_id" value="{{ Auth::user()->id }}"/>
+		</form>
+	</div>
 
 
 
@@ -27,6 +33,7 @@
 @section('scripts')
 
 	{!! HTML::script('ckeditor/ckeditor.js') !!}
+	{!! HTML::script('js/dropzone.js') !!}
 
 	<script>
 

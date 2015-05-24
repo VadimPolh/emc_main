@@ -2,29 +2,11 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Repositories\PracticalRepository;
+use App\Models\Topics;
+
 use Illuminate\Http\Request;
-use App\Http\Requests\LectionCreateRequest;
 
-class PracticalController extends Controller {
-
-
-	/**
-	 * The PracticalRepository instance.
-	 *
-	 * @var App\Repositories\PracticalRepository
-	 */
-	protected $practical_gestion;
-
-
-	public function __construct(PracticalRepository $practical_gestion){
-
-		$this->practical_gestion = $practical_gestion;
-
-	}
-
-
-
+class TopicsController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -33,11 +15,8 @@ class PracticalController extends Controller {
 	 */
 	public function index()
 	{
-		$counts = $this->practical_gestion->counts();
-		$practicals = $this->practical_gestion->index(10);
-		$links = str_replace('/?', '?', $practicals->render());
-
-		return view('back.practical.index',compact('counts','practicals','links'));
+		$topics = Topics::all();
+		return $topics;
 	}
 
 	/**
@@ -47,7 +26,7 @@ class PracticalController extends Controller {
 	 */
 	public function create()
 	{
-		return view('back.practical.create',$this->practical_gestion->create());
+
 	}
 
 	/**
@@ -55,11 +34,16 @@ class PracticalController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(LectionCreateRequest $request)
+	public function store(Topics $topics)
 	{
-		$this->practical_gestion->store($request->all());
 
-		return redirect('practical')->with('ok', trans('back/practical.created'));
+
+		$topic = new $topics;
+		$topic->name = \Request::get('name');
+		$topic->objects_id = \Request::get('objects_id');
+		$topic->save();
+
+		return $topics;
 	}
 
 	/**
@@ -103,7 +87,7 @@ class PracticalController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		Topics::destroy($id);
 	}
 
 }

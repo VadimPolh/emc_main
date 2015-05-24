@@ -10,9 +10,9 @@
 		{!! Form::open(['url' => 'practical', 'method' => 'post', 'class' => 'form-horizontal panel']) !!}
 		{!! Form::control('text', 0, 'title', $errors, trans('back/practical.name')) !!}
 		{!! Form::selection('objects_id', $select, null, trans('back/practical.nameobjects')) !!}
+		{!! Form::selection('topics_id', $topics, null, trans('back/practical.topics')) !!}
+		{!! Form::selection('lections_id', $lections, null, trans('back/practical.lections')) !!}
 		{!! Form::control('textarea', 0, 'summary', $errors, trans('back/practical.summary')) !!}
-
-
 
 
 		{!! Form::submit(trans('front/form.send')) !!}

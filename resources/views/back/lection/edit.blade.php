@@ -3,30 +3,36 @@
 @section('main')
 
 
-@include('back.partials.entete', ['title' => trans('back/lection.dashboard'), 'icone' => 'user', 'fil' => link_to('lection', trans('back/lection.Users')) . ' / ' . trans('back/lection.edition')])
+    @include('back.partials.entete', ['title' => trans('back/lection.dashboard'), 'icone' => 'user', 'fil' => link_to('lection', trans('back/lection.Users')) . ' / ' . trans('back/lection.edition')])
 
 
 
-<div class="col-sm-12">
-    {!! Form::model($lection, ['route' => ['lection.update', $lection->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
-    {!! Form::control('text', 0, 'title', $errors, trans('back/lection.name')) !!}
-    {!! Form::selection('objects_id', $select, null, trans('back/lection.nameobjects')) !!}
-    {!! Form::control('textarea', 0, 'summary', $errors, trans('back/lection.summary')) !!}
-    {!! Form::submit(trans('front/form.send')) !!}
-    {!! Form::close() !!}
-</div>
-<div class="col-sm-12">
-<h3>Прикрепленые файлы</h3>
+    <div class="col-sm-12">
+        {!! Form::model($lection, ['route' => ['lection.update', $lection->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
+        {!! Form::control('text', 0, 'title', $errors, trans('back/lection.name')) !!}
+        {!! Form::selection('objects_id', $select, null, trans('back/lection.nameobjects')) !!}
+        {!! Form::control('textarea', 0, 'summary', $errors, trans('back/lection.summary')) !!}
+        {!! Form::submit(trans('front/form.send')) !!}
+        {!! Form::close() !!}
+    </div>
+    <div class="col-sm-12">
+        <h3>Прикрепленые файлы</h3>
 
+        @if (count($lection->attachment) != 0)
+            <ul>
+                @foreach($lection->attachment as $attachment)
+                    <li><a href="">{{$attachment->name}}</a></li>
+                @endforeach
+            </ul>
+        @endif
 
-
-    <hr>
-<form action="{{ url('lection/upload')}}" class="dropzone" id="my-awesome-dropzone">
-    <input type="hidden" name="type" value="lection">
-    <input type="hidden" name="id" value="{{$lection->id}}"/>
-    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}"/>
-</form>
-</div>
+        <hr>
+        <form action="{{ url('lection/upload')}}" class="dropzone" id="my-awesome-dropzone">
+            <input type="hidden" name="type" value="lection">
+            <input type="hidden" name="id" value="{{$lection->id}}"/>
+            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}"/>
+        </form>
+    </div>
 @stop
 
 
