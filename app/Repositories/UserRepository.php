@@ -45,6 +45,11 @@ class UserRepository extends BaseRepository{
 
 			$user->username = $inputs['username'];
 			$user->email = $inputs['email'];
+      if(isset($inputs['group_id'])) {
+				$user->groups_id = $inputs['group_id'];	
+			} else {
+        $user->groups_id = 2;
+      }
 
 			if(isset($inputs['role'])) {
 				$user->role_id = $inputs['role'];	

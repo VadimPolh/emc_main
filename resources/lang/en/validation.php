@@ -49,7 +49,7 @@ return [
 	],
 	"mimes"                => "The :attribute must be a file of type: :values.",
 	"min"                  => [
-		"numeric" => "The :attribute must be at least :min.",
+		"numeric" => "Поле :attribute должно быть не менее :min.",
 		"file"    => "The :attribute must be at least :min kilobytes.",
 		"string"  => "The :attribute must be at least :min characters.",
 		"array"   => "The :attribute must have at least :min items.",
@@ -57,7 +57,7 @@ return [
 	"not_in"               => "The selected :attribute is invalid.",
 	"numeric"              => "The :attribute must be a number.",
 	"regex"                => "The :attribute format is invalid.",
-	"required"             => "The :attribute field is required.",
+	"required"             => "Поле :attribute является обязательным.",
 	"required_if"          => "The :attribute field is required when :other is :value.",
 	"required_with"        => "The :attribute field is required when :values is present.",
 	"required_with_all"    => "The :attribute field is required when :values is present.",
