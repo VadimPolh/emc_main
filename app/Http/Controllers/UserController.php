@@ -6,7 +6,7 @@ use App\Http\Requests\UserCreateRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Http\Requests\RoleRequest;
 use Illuminate\Http\Request;
-
+use App\Models\User, App\Models\Groups, App\Models\Specialty;
 class UserController extends Controller {
 
 	/**
@@ -37,7 +37,7 @@ class UserController extends Controller {
 		$this->user_gestion = $user_gestion;
 		$this->role_gestion = $role_gestion;
 
-		$this->middleware('admin');
+		//$this->middleware('admin');
 		$this->middleware('ajax', ['only' => 'updateSeen']);
 	}
 
@@ -201,6 +201,22 @@ class UserController extends Controller {
 		$this->role_gestion->update($request->except('_token'));
 		
 		return redirect('user/roles')->with('ok', trans('back/roles.ok'));
+	}
+
+	public function getInfo(){
+
+		$result = array();
+		$user = User::with('role','group')->get()->find(\Auth::id());
+		$group = Groups::find($user['groups_id']);
+		$specialty = Specialty::find($group['specialty_id']);
+
+		$result['username'] = $user['username'];
+		$result['email'] = $user['email'];
+		$result['role'] = $user['role']['title'];
+		$result['group'] = $group['name'];
+		$result['specialty'] = $specialty['name'];
+
+		return $result;
 	}
 
 }

@@ -30,7 +30,7 @@
                                 {!! link_to_route('admin', trans('front/site.administration')) !!}
                             </li>
                         @endif
-                        <li></li>
+                        <li><a href="#" class="about-profile">Информация</a></li>
 
                         <li class="divider"></li>
                         <li>{!! link_to('auth/logout', trans('front/site.logout')) !!}</li>

@@ -61,13 +61,17 @@ Route::resource('contact', 'ContactController', [
 
 // User
 Route::get('user/sort/{role}', 'UserController@indexSort');
-
 Route::get('user/roles', 'UserController@getRoles');
 Route::post('user/roles', 'UserController@postRoles');
 
 Route::put('userseen/{id}', 'UserController@updateSeen');
 
 Route::resource('user', 'UserController');
+
+//User api
+Route::get('/api/user/info','UserController@getInfo');
+
+
 
 //Specialty
 Route::resource('specialty', 'SpecialtyController');
