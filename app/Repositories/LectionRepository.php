@@ -92,6 +92,7 @@ class LectionRepository extends BaseRepository
 
     }
 
+
     public function edit($id)
     {
         $lection = $this->getById($id);

@@ -11,9 +11,9 @@
 
         <div class="search-result">
             <h3><a href="#">{{$item->title}}</a></h3>
-            <a href="#" class="search-link">{{$item->slug}}</a>
+            <a href="/{{$specialty->slug}}/{{$user->group->slug}}/ " class="search-link">/{{$specialty->slug}}/{{$user->group->slug}}/{{$item->slug}}</a>
             <p>
-                Краткое содержимое
+              {{ str_limit($item->summary, $limit = 100, $end = '...') }}
             </p>
         </div>
 

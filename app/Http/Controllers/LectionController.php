@@ -8,7 +8,7 @@ use App\Repositories\ObjectRepository;
 use App\Repositories\AttachmentRepository;
 use App\Http\Requests\LectionCreateRequest;
 use App\Http\Requests\LectionUpdateRequest;
-use App\Models\Lection;
+use App\Models\Lection,App\Models\User,App\Models\Practical;
 
 use Illuminate\Http\Request;
 
@@ -110,8 +110,11 @@ class LectionController extends Controller
 
         $keywords = \Input::get('keywords');
         $result = Lection::search($keywords)->get();
+        $practical = Practical::search($keywords)->get();
+        $user = User::with('group')->get()->find(\Auth::id());
+        $specialty = $this->specialty_gestion->getById($user->group->specialty_id);
 
-       return view('front.inspinia.search.result',compact('result','keywords'));
+       return view('front.inspinia.search.result',compact('result','keywords','user','specialty'));
 
     }
 
