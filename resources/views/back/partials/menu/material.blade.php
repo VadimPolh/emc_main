@@ -2,7 +2,10 @@
     Request::is('lection/*') ||
     Request::is('lection') ||
     Request::is('practical/*') ||
-    Request::is('practical') ? 'class="active"' : '' !!}>
+    Request::is('practical') ||
+    Request::is('tests/*') ||
+    Request::is('tests')
+    ? 'class="active"' : '' !!}>
 <a href="#" data-toggle="collapse" data-target="#material_list"><span
             class="fa fa-fw fa-file"></span> {{ trans('back/admin.material') }} <span
             class="fa fa-fw fa-caret-down"></span></a>

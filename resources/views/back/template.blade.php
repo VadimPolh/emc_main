@@ -82,7 +82,7 @@
 
                     @include('back.partials.menu.structure')
 
-                    <li {!! Request::is('objects/*') ? 'class="active"' : '' !!}>
+                    <li {!! Request::is('objects/*') || Request::is('objects')  ? 'class="active"' : '' !!}>
                         <a href="{!! url('objects') !!}"><span class="fa fa-fw fa-book"></span> {{ trans('back/admin.objects') }}</a>
                     </li>
 
@@ -92,9 +92,9 @@
                         <a href="{!! url('contact') !!}"><span class="fa fa-fw fa-envelope"></span> {{ trans('back/admin.messages') }}</a>
                     </li>
 
-                    <li {!! Request::is('comment') ? 'class="active"' : '' !!}>
-                        <a href="{!! url('comment') !!}"><span class="fa fa-fw fa-comments"></span> {{ trans('back/admin.comments') }}</a>
-                    </li>
+                    {{--<li {!! Request::is('comment') ? 'class="active"' : '' !!}>--}}
+                        {{--<a href="{!! url('comment') !!}"><span class="fa fa-fw fa-comments"></span> {{ trans('back/admin.comments') }}</a>--}}
+                    {{--</li>--}}
                 @endif
                 <li {!! Request::is('medias') ? 'class="active"' : '' !!}>
                     <a href="{!! route('medias') !!}"><span class="fa fa-fw fa-file-image-o"></span> {{ trans('back/admin.medias') }}</a>

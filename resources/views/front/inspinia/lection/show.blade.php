@@ -89,15 +89,32 @@
 
 
 
+
                     <div class="clearfix"></div>
 
             </div>
             @endif
-            <div class="clearfix"></div>
 
+            @if(count($lection->practicals) != 0)
+                <div class="mail-body tooltip-demo">
+                    <h4>Практические к данной лекции</h4>
+                    <ul>
+                    @foreach($lection->practicals as $practical)
+                    <?php $i =1?>
+                        <li><a href="#">{{$i}}.{{$practical->title}}</a></li>
+                    <?php $i++?>
+                    @endforeach
+                    </ul>
+                </div>
+            @endif
+
+
+
+
+            <div class="clearfix"></div>
 
         </div>
     </div>
 </div>
-
+<br><br>
 @stop

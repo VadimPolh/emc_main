@@ -38,6 +38,10 @@ class Objects extends Model implements SluggableInterface{
     public function lection(){
         return $this->hasMany('App\Models\Lection');
     }
+
+    public function topics(){
+        return $this->hasMany('App\Models\Topics');
+    }
   
     public function practicals(){
         return $this->hasMany('App\Models\Practical');

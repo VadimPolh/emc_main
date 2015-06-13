@@ -39,4 +39,8 @@ class Practical extends Model implements SluggableInterface{
         return $this->belongsTo('App\Models\Objects');
     }
 
+    public function topic()
+    {
+        return $this->belongsTo('App\Models\Topics','topics_id');
+    }
 }

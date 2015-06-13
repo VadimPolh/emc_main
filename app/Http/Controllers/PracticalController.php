@@ -3,6 +3,8 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Repositories\PracticalRepository;
+use App\Repositories\SpecialtyRepository;
+use App\Repositories\ObjectRepository;
 use Illuminate\Http\Request;
 use App\Http\Requests\LectionCreateRequest;
 
@@ -17,13 +19,13 @@ class PracticalController extends Controller {
 	protected $practical_gestion;
 
 
-	public function __construct(PracticalRepository $practical_gestion){
+	public function __construct(PracticalRepository $practical_gestion,SpecialtyRepository $specialty_gestion, ObjectRepository $object_gestion){
 
 		$this->practical_gestion = $practical_gestion;
+		$this->specialty_gestion = $specialty_gestion;
+		$this->object_gestion = $object_gestion;
 
 	}
-
-
 
 
 	/**
@@ -72,6 +74,19 @@ class PracticalController extends Controller {
 	{
 		//
 	}
+
+	public function showMain($spec,$group,$object,$practical)
+	{
+
+		$user = \Auth::user();
+		$specialty = $this->specialty_gestion->all();
+		$obj = $this->object_gestion->getBySlug($object);
+		$practical = $this->practical_gestion->getBySlug($practical);
+
+
+		return view('front.inspinia.practical.show',compact('user','specialty','obj','practical'));
+	}
+
 
 	/**
 	 * Show the form for editing the specified resource.

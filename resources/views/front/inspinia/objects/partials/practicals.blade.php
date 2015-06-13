@@ -23,11 +23,11 @@
 
 
                     <div class="feed-element">
-                        <a href="/{{$object -> specialty[0] -> slug}}/{{$group}}/{{$object->slug}}/lection/{{$lection->slug}}" class="pull-left">
+                        <a href="/{{$object -> specialty[0] -> slug}}/{{$group}}/{{$object->slug}}/practical/{{$lection->slug}}" class="pull-left">
                             <div class="randomize-box">{{$i}}</div>
                         </a>
                         <div class="media-body" style="  margin-top: 6px;">
-                            <a href="/{{$object -> specialty[0] -> slug}}/{{$group}}/{{$object->slug}}/lection/{{$lection->slug}}">  <strong>{{$lection->title}}</strong></a>
+                            <a href="/{{$object -> specialty[0] -> slug}}/{{$group}}/{{$object->slug}}/practical/{{$lection->slug}}">  <strong>{{$lection->title}}</strong></a>
                         </div>
                     </div>
                     <?php $i++;?>

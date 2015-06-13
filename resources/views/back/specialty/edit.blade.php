@@ -18,7 +18,7 @@
 	<h3>Предметы</h3>
   	<?php $i=1 ?>
 	@foreach($specialty->objects as $objects)
-		<p>{{$i}}. <a href="/objects/{{$objects->id}}">{{$objects->title}}</a></p>
+		<p>{{$i}}. <a href="/objects/{{$objects->id}}">{{$objects->name}}</a></p>
 		<?php $i++ ?>
 	@endforeach
 

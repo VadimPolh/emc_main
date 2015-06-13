@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class Tests extends Controller {
+class TestsController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -14,7 +14,7 @@ class Tests extends Controller {
 	 */
 	public function index()
 	{
-		//
+		return view('back.tests.index');
 	}
 
 	/**

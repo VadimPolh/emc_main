@@ -4,7 +4,7 @@ return [
 	'dashboard' => 'Специальности',
 	'users' => 'users',
 	'add' => 'Добавить специальность',
-	'all' => 'Все',
+	'all' => 'Все специальности',
 	'name' => 'Название',
 	'chief' => 'Куратор специальности',
 	'role' => 'Role',		
@@ -20,13 +20,13 @@ return [
 	'email' => 'Email',
 	'password' => 'Password',
 	'confirm-password' => 'Confirm password',
-	'edition' => 'Edition',
+	'edition' => 'Изменение',
 	'card' => 'Card',
 	'created' => 'Специальность создана',
 	'updated' => 'Специальность обновлена',
 	'destroyed' => 'User destroyed.',
 	'specialty_id' => 'Номер Специальности',
-  'short_name' => 'Краткое название',
-  'icon_class' => 'Класс иконки для отображения',
-  'nameobjects' => 'Название специальности'
+  	'short_name' => 'Краткое название',
+  	'icon_class' => 'Класс иконки для отображения',
+  	'nameobjects' => 'Название специальности'
 ];

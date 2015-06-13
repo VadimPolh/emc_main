@@ -1,6 +1,6 @@
 <div class="ibox float-e-margins">
         <div class="ibox-title">
-            <h5>Контроль знаний<span class="label label-warning-light" style="float: right;">{{count($object->tests)}}</span></h5>
+            <h5>Контроль знаний<span class="label label-warning-light" style="float: right;"></span></h5>
            <div class="ibox-tools">
              <a class="slide-link">  
              <i class="fa fa-chevron-up"></i>
@@ -29,7 +29,7 @@
 
                 </div>
 
-                <button class="btn btn-primary btn-block m-t"><i class="fa fa-arrow-down"></i> Далее</button>
+
 
             </div>
 

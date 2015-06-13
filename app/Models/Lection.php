@@ -47,6 +47,16 @@ class Lection extends Model implements SluggableInterface{
         return $this->hasMany('App\Models\Attachment');
     }
 
+    /**
+     * One to Many relation
+     *
+     * @return Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function practicals()
+    {
+        return $this->hasMany('App\Models\Practical');
+    }
+
 
     public function topic()
     {

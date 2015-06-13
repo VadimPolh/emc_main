@@ -93,7 +93,6 @@ Route::get('topics','TopicsController@index');
 Route::resource('api/topics','TopicsController');
 
 
-
 //Lection
 Route::resource('lection','LectionController');
 Route::post('lection/upload','LectionController@upload');
@@ -102,12 +101,13 @@ Route::post('search', 'LectionController@search');
 
 //Practicals
 Route::resource('practical','PracticalController');
-
-
+Route::get('{spec}/{group}/{slug}/practical/{practical}', 'PracticalController@showMain');
 
 //Groups
 Route::resource('groups','GroupsController');
 
+//Test
+Route::resource('tests' , 'TestsController');
 
 // Auth
 Route::controllers([
