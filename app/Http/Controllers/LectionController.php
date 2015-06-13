@@ -55,7 +55,6 @@ class LectionController extends Controller
      */
     public function create()
     {
-
         return view('back.lection.create',$this->lection_gestion->create());
     }
 
