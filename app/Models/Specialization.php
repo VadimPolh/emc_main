@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class specialization extends Model {
+class Specialization extends Model {
 
 	//
 

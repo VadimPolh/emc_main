@@ -11,7 +11,10 @@
 	{!! Form::model($object, ['route' => ['objects.update', $object->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
     {!! Form::control('text', 0, 'name', $errors, trans('back/objects.name')) !!}
   	{!! Form::selection('specialty_id', $select, null, trans('back/objects.specialty')) !!}
-    {!! Form::selection('user_id', $select_user, null, trans('back/objects.user')) !!}
+    {!! Form::selection('user_id', $select_user, null, trans('back/objects.user')) !!} <a href="#" id="double_teacher">+ Добавить преподователя</a>
+    <div class="dt" style="display: none;">
+        {!! Form::selection('double_user_id', $select_user, null, trans('back/objects.double_user')) !!}
+    </div>
     {!! Form::control('textarea', 0, 'description', $errors, trans('back/objects.description')) !!}
 		
   {!! Form::submit(trans('front/form.send')) !!}
@@ -24,7 +27,7 @@
     <h3>Темы</h3>
     <div class="row">
         <div class="col-md-12">
-            <input type='text' ng-model="todo.title">
+            <input type='text' ng-model="todo.name">
             <button class="btn btn-primary btn-md"  ng-click="addTodo()">Добавить</button>
             <i ng-show="loading" class="fa fa-spinner fa-spin"></i>
         </div>
@@ -78,13 +81,12 @@
                 $scope.loading = true;
 
                 $http.post('/api/topics', {
-                    name: $scope.todo.title,
+                    name: $scope.todo.name,
                     objects_id: {{$object->id}},
                     _token: $('meta[name=_token]').attr('content'),
                     done: $scope.todo.done
-                })
-                        .success(function(data, status, headers, config) {
-                    $scope.todos.push(data);
+                }).success(function(data, status, headers, config) {
+                    $scope.todos.push($scope.todo);
                     $scope.todo = '';
                     $scope.loading = false;
 
@@ -101,7 +103,7 @@
                     todo = data;
                     $scope.loading = false;
 
-                });;
+                });
             };
 
             $scope.deleteTodo = function(index) {
@@ -122,7 +124,14 @@
 
         });
 
+        //добовление второго преподователя
+        
+        $('#double_teacher').on('click',function(event){
+            event.preventDefault();
+            $(this).hide();
+            $('.dt').show();
 
+        });
 
     </script>
 

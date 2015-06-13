@@ -4,140 +4,134 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 
-	<head>
+<head>
 
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>УМК - Административный раздел</title>
-		<meta name="description" content="">	
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>УМК - Административный раздел</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-		{!! HTML::style('css/main_back.css') !!}
+    {!! HTML::style('css/main_back.css') !!}
 
 		<!--[if (lt IE 9) & (!IEMobile)]>
-			{!! HTML::script('js/vendor/respond.min.js') !!}
-		<![endif]-->
-		<!--[if lt IE 9]>
-			{{ HTML::style('https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js') }}
-			{{ HTML::style('https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js') }}
-		<![endif]-->
+    {!! HTML::script('js/vendor/respond.min.js') !!}
+    <![endif]-->
+    <!--[if lt IE 9]>
+    {{ HTML::style('https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js') }}
+    {{ HTML::style('https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js') }}
+    <![endif]-->
 
-		{!! HTML::style('http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800') !!}
-		{!! HTML::style('http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic') !!}
+    {!! HTML::style('http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800') !!}
+    {!! HTML::style('http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic') !!}
 
-        @yield('head')
+    @yield('head')
 
-	</head>
+</head>
 
-  <body>
+<body>
 
-	<!--[if lte IE 7]>
-	    <p class="browsehappy">Vous utilisez un navigateur <strong>obsolète</strong>. S'il vous plaît <a href="http://browsehappy.com/">Mettez le à jour</a> pour améliorer votre navigation.</p>
-	<![endif]-->
+<!--[if lte IE 7]>
+<p class="browsehappy">Vous utilisez un navigateur <strong>obsolète</strong>. S'il vous plaît <a href="http://browsehappy.com/">Mettez le à jour</a> pour améliorer votre navigation.</p>
+<![endif]-->
 
-   <div id="wrapper">
+<div id="wrapper">
 
-        <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @if(session('statut') == 'admin')
+                {!! link_to_route('admin', trans('back/admin.administration'), [], ['class' => 'navbar-brand']) !!}
+            @else
+                {!! link_to_route('blog.index', trans('back/admin.redaction'), [], ['class' => 'navbar-brand']) !!}
+            @endif
+        </div>
+        <!-- Menu supérieur -->
+        <ul class="nav navbar-right top-nav">
+            <li>{!! link_to_route('home', trans('back/admin.home')) !!}</li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-user"></span> {{ Auth::user()->username }}<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="{!! url('auth/logout') !!}"><span class="fa fa-fw fa-power-off"></span> {{ trans('back/admin.logout') }}</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!-- Menu de la barre latérale -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
                 @if(session('statut') == 'admin')
-                    {!! link_to_route('admin', trans('back/admin.administration'), [], ['class' => 'navbar-brand']) !!}
-                @else
-                    {!! link_to_route('blog.index', trans('back/admin.redaction'), [], ['class' => 'navbar-brand']) !!}
+                    <li {!! Request::is('admin') ? 'class="active"' : '' !!}>
+                        <a href="{!! route('admin') !!}"><span class="fa fa-fw fa-dashboard"></span> {{ trans('back/admin.dashboard') }}</a>
+                    </li>
+                    <li {!! Request::is('user/*') ? 'class="active"' : '' !!}>
+                        <a href="#" data-toggle="collapse" data-target="#usermenu"><span class="fa fa-fw fa-user"></span> {{ trans('back/admin.users') }} <span class="fa fa-fw fa-caret-down"></span></a>
+                        <ul id="usermenu" class="collapse">
+                            <li><a href="{!! url('user') !!}">{{ trans('back/admin.see-all') }}</a></li>
+                            <li><a href="{!! url('user/create') !!}">{{ trans('back/admin.add') }}</a></li>
+                            <li><a href="{!! url('user/roles') !!}">{{ trans('back/roles.roles') }}</a></li>
+                        </ul>
+                    </li>
+
+                    @include('back.partials.menu.structure')
+
+                    <li {!! Request::is('objects/*') ? 'class="active"' : '' !!}>
+                        <a href="{!! url('objects') !!}"><span class="fa fa-fw fa-book"></span> {{ trans('back/admin.objects') }}</a>
+                    </li>
+
+                    @include('back.partials.menu.material')
+
+                    <li {!! Request::is('contact') ? 'class="active"' : '' !!}>
+                        <a href="{!! url('contact') !!}"><span class="fa fa-fw fa-envelope"></span> {{ trans('back/admin.messages') }}</a>
+                    </li>
+
+                    <li {!! Request::is('comment') ? 'class="active"' : '' !!}>
+                        <a href="{!! url('comment') !!}"><span class="fa fa-fw fa-comments"></span> {{ trans('back/admin.comments') }}</a>
+                    </li>
                 @endif
-            </div>
-            <!-- Menu supérieur -->
-            <ul class="nav navbar-right top-nav">
-                <li>{!! link_to_route('home', trans('back/admin.home')) !!}</li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-user"></span> {{ Auth::user()->username }}<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="{!! url('auth/logout') !!}"><span class="fa fa-fw fa-power-off"></span> {{ trans('back/admin.logout') }}</a>
-                        </li>
+                <li {!! Request::is('medias') ? 'class="active"' : '' !!}>
+                    <a href="{!! route('medias') !!}"><span class="fa fa-fw fa-file-image-o"></span> {{ trans('back/admin.medias') }}</a>
+                </li>
+                <li {!! Request::segment(1) == ('blog') ? 'class="active"' : '' !!}>
+                    <a href="#" data-toggle="collapse" data-target="#articlemenu"><span class="fa fa-fw fa-pencil"></span> {{ trans('back/admin.posts') }} <span class="fa fa-fw fa-caret-down"></a>
+                    <ul id="articlemenu" class="collapse">
+                        <li><a href="{!! url('blog') !!}">{{ trans('back/admin.see-all') }}</a></li>
+                        <li><a href="{!! url('blog/create') !!}">{{ trans('back/admin.add') }}</a></li>
                     </ul>
                 </li>
             </ul>
-            <!-- Menu de la barre latérale -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
-                    @if(session('statut') == 'admin')
-                        <li {!! Request::is('admin') ? 'class="active"' : '' !!}>
-                             <a href="{!! route('admin') !!}"><span class="fa fa-fw fa-dashboard"></span> {{ trans('back/admin.dashboard') }}</a>
-                        </li>
-                        <li {!! Request::is('user/*') ? 'class="active"' : '' !!}>
-                            <a href="#" data-toggle="collapse" data-target="#usermenu"><span class="fa fa-fw fa-user"></span> {{ trans('back/admin.users') }} <span class="fa fa-fw fa-caret-down"></span></a>
-                            <ul id="usermenu" class="collapse">
-                                <li><a href="{!! url('user') !!}">{{ trans('back/admin.see-all') }}</a></li>
-                                <li><a href="{!! url('user/create') !!}">{{ trans('back/admin.add') }}</a></li>
-                                <li><a href="{!! url('user/roles') !!}">{{ trans('back/roles.roles') }}</a></li>
-                            </ul>
-                        </li>
-                        <li {!! Request::is('content/*') ? 'class="active"' : '' !!}>
-                            <a href="#" data-toggle="collapse" data-target="#content_list"><span class="fa fa-fw fa-file"></span> {{ trans('back/admin.content') }} <span class="fa fa-fw fa-caret-down"></span></a>
-                            <ul id="content_list" class="collapse">
-                                <li><a href="{!! url('content/specialty') !!}">{{ trans('back/admin.specialty') }}</a></li>
-                                <li><a href="{!! url('content/specializations') !!}">{{ trans('back/admin.specializations') }}</a></li>
-                                <li><a href="{!! url('groups') !!}">{{ trans('back/admin.groups') }}</a></li>
-                            </ul>
-                        </li>
-                  
-                  <li {!! Request::is('objects/*') ? 'class="active"' : '' !!}>
-                            <a href="{!! url('objects') !!}"><span class="fa fa-fw fa-book"></span> {{ trans('back/admin.objects') }}</a>
-                        </li>
-                  
-                      @include('back.partials.menu.material')
-                  
-                  <li {!! Request::is('contact') ? 'class="active"' : '' !!}>
-                            <a href="{!! url('contact') !!}"><span class="fa fa-fw fa-envelope"></span> {{ trans('back/admin.messages') }}</a>
-                        </li>
-                       
-                        <li {!! Request::is('comment') ? 'class="active"' : '' !!}>
-                            <a href="{!! url('comment') !!}"><span class="fa fa-fw fa-comments"></span> {{ trans('back/admin.comments') }}</a>
-                        </li> 
-                    @endif                  
-                    <li {!! Request::is('medias') ? 'class="active"' : '' !!}>
-                        <a href="{!! route('medias') !!}"><span class="fa fa-fw fa-file-image-o"></span> {{ trans('back/admin.medias') }}</a>
-                    </li>
-                    <li {!! Request::segment(1) == ('blog') ? 'class="active"' : '' !!}>
-                        <a href="#" data-toggle="collapse" data-target="#articlemenu"><span class="fa fa-fw fa-pencil"></span> {{ trans('back/admin.posts') }} <span class="fa fa-fw fa-caret-down"></a>
-                        <ul id="articlemenu" class="collapse">
-                            <li><a href="{!! url('blog') !!}">{{ trans('back/admin.see-all') }}</a></li>
-                            <li><a href="{!! url('blog/create') !!}">{{ trans('back/admin.add') }}</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </nav>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
 
-        <div id="page-wrapper">
+    <div id="page-wrapper">
 
-            <div class="container-fluid">
+        <div class="container-fluid">
 
-                @yield('main')
-
-            </div>
-            <!-- /.container-fluid -->
+            @yield('main')
 
         </div>
-        <!-- /.page-wrapper -->
+        <!-- /.container-fluid -->
 
     </div>
-    <!-- /.wrapper -->
+    <!-- /.page-wrapper -->
 
-    	{!! HTML::script('//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js') !!}
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-    	{!! HTML::script('js/plugins.js') !!}
-    	{!! HTML::script('js/main.js') !!}
+</div>
+<!-- /.wrapper -->
 
-        @yield('scripts')
+{!! HTML::script('//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js') !!}
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+{!! HTML::script('js/plugins.js') !!}
+{!! HTML::script('js/main.js') !!}
 
-  </body>
+@yield('scripts')
+
+</body>
 </html>

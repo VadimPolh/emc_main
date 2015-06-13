@@ -77,6 +77,9 @@ Route::get('/api/user/info','UserController@getInfo');
 Route::resource('specialty', 'SpecialtyController');
 Route::get('/content/specialty','SpecialtyController@index');
 
+//Specialization
+Route::resource('specializations', 'SpecializationController');
+Route::get('content/specializations','SpecializationController@index');
 
 
 Route::get('lection/{id}/edit/', 'LectionController@edit');
