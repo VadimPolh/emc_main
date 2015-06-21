@@ -21,6 +21,7 @@
           {{ $user->role->title }} <b class="caret"></b>
         </span>
       </span>
+
                     </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
                         <li>{!! link_to_route('home', trans('front/site.home')) !!}</li>
@@ -40,38 +41,72 @@
             </li>
 
             @foreach ($specialty as $spec)
-                <li>
-                    <a href="">
+              @if(session('statut') != 'admin')
+                    @if($user->group->specialty->slug == $spec->slug)
+                    <li class="active">
+                        <a href="">
+                            @if($spec->icon_class)
+                                <i class="fa {{$spec->icon_class}}"></i>
+                            @endif
 
-                        @if($spec->icon_class)
-                            <i class="fa {{$spec->icon_class}}"></i>
-                        @endif
+                            @if($spec->short_name)
+                                <span class="nav-label">{{$spec->short_name}}</span>
+                            @else
+                                <span class="nav-label">{{$spec->name}}</span>
+                            @endif
 
-                        @if($spec->short_name)
-                            <span class="nav-label">{{$spec->short_name}}</span>
-                        @else
-                            <span class="nav-label">{{$spec->name}}</span>
-                        @endif
+                            @if(count($spec->objects) != 0)
+                                <span class="fa arrow"></span>
+                            @endif
+                        </a>
 
                         @if(count($spec->objects) != 0)
-                            <span class="fa arrow"></span>
+                            <ul class="nav nav-second-level">
+                                @foreach($spec->objects as $object)
+                                    <?php $group = DB::table('groups')->where('id', $user->groups_id)->pluck('slug')?>
+                                    <li {!! Request::is("$spec->slug/$group/$object->slug") || Request::is("$spec->slug/$group/$object->slug/*") ? 'class="active current-child"' : '' !!}>
+                                        <a href="/{{$spec->slug}}/{{$group}}/{{$object->slug}}">{{$object->name}}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
                         @endif
-                    </a>
+                    </li>
+                    @endif
+              @else
 
-                    @if(count($spec->objects) != 0)
-                        <ul class="nav nav-second-level">
-                            @foreach($spec->objects as $object)
-                                <?php $group = DB::table('groups')->where('id', $user->groups_id)->pluck('slug')?>
-                                <li {!! Request::is("$spec->slug/$group/$object->slug") || Request::is("$spec->slug/$group/$object->slug/*") ? 'class="active current-child"' : '' !!}>
-                                <a href="/{{$spec->slug}}/{{$group}}/{{$object->slug}}">{{$object->name}}</a>
-                                </li>
+                    <li>
+                        <a href="">
+                            @if($spec->icon_class)
+                                <i class="fa {{$spec->icon_class}}"></i>
+                            @endif
+
+                            @if($spec->short_name)
+                                <span class="nav-label">{{$spec->short_name}}</span>
+                            @else
+                                <span class="nav-label">{{$spec->name}}</span>
+                            @endif
+
+                            @if(count($spec->objects) != 0)
+                                <span class="fa arrow"></span>
+                            @endif
+                        </a>
+
+                        @if(count($spec->objects) != 0)
+                            <ul class="nav nav-second-level">
+                                @foreach($spec->objects as $object)
+                                    <?php $group = DB::table('groups')->where('id', $user->groups_id)->pluck('slug')?>
+                                    <li {!! Request::is("$spec->slug/$group/$object->slug") || Request::is("$spec->slug/$group/$object->slug/*") ? 'class="active current-child"' : '' !!}>
+                                        <a href="/{{$spec->slug}}/{{$group}}/{{$object->slug}}">{{$object->name}}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        @endif
+                    </li>
+
+              @endif
+
+
             @endforeach
-        </ul>
-
-        @endif
-
-        </li>
-        @endforeach
 
         @if(session('statut') == 'admin')
             <li>

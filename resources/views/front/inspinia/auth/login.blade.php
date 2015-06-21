@@ -23,8 +23,8 @@
                     <div class="row">
                         <div class="col-sm-6 b-r">
                             <h3 class="m-t-none m-b">Войдите</h3>
-                            {!! Form::open(['url' => 'auth/login', 'method' => 'post', 'role' => 'form']) !!}   
-                                {!! Form::control('text', 12, 'log', $errors, trans('front/login.log')) !!}      
+                            {!! Form::open(['url' => 'auth/login', 'method' => 'post', 'role' => 'form']) !!}
+                                {!! Form::control('text', 12, 'log', $errors, trans('front/login.log')) !!}
                                 {!! Form::control('password', 12, 'password', $errors, trans('front/login.password')) !!}
                             <div>
                                 <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit"> <strong>Войти</strong>
@@ -51,23 +51,23 @@
 
         </div>
         <div class="col-md-3 login-text">
-           
+
                 <div class="login-content">
                     <h2 class="font-bold">УЧЕБНО-МЕТОДИЧЕСКИЙ КОМПЛЕКС</h2>
 
                     <p>Колледж Бизнесса и Права</p>
 
-                    
+
 
                     <p>
                         В Pascal можно организовать вызов из программы любой другой программы, которую назовем программой–потомком. Но, чтобы программа–потомок успешно загружалась в память и начала выполняться, требуется выделить ей необходимый объем памяти. Так как программа, которая выполняется в данный момент, по умолчанию захватывает всю свободную динамическую память (кучу) системы, то для загрузки программы–потомка просто нет места.
                     </p>
                     <p>
                         <a href="http://kbp.by" target="_blank" class="btn btn-default">Оффициальный сайт колледжа</a>
-                        <a href="kbp.by" target="_blank" class="btn btn-default">Рассписание занятий</a>
+                        <a href="http://kbp.by/rasp/timetable/view_beta_tbp/?q=" target="_blank" class="btn btn-default">Рассписание занятий</a>
                     </p>
                     <p>
-                        
+
 
                     </p>
                 </div>
@@ -79,12 +79,12 @@
                     </div>
                     <div class="col-md-6 text-right">
                         <small>
-                            <a href="http://webdirection.by/" class="copyright">webdirection.by</a>
-                            © 2014-2015
+                            <a href="http://bevalex.by/" class="copyright">bevalex.by</a>
+                            ©2015
                         </small>
                     </div>
                 </div>
-         
+
         </div>
     </div>
     <div id="modal-form" class="modal fade" aria-hidden="true">
@@ -94,17 +94,17 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <h3 class="m-t-none m-b">Регистрация</h3>
-
                             <p>Введите требуемые данные в поля ниже</p>
 
-                            <form role="form">
-                                <div class="form-group">
-                                    <label>E-mail</label>
-                                    <input type="email" placeholder="Введите e-mail" class="form-control"></div>
-                                <div class="form-group">
-                                    <label>Пароль</label>
-                                    <input type="password" placeholder="Пароль" class="form-control"></div>
-                                <div>
+                            {!! Form::open(['url' => 'auth/register', 'method' => 'post', 'role' => 'form']) !!}
+
+                            <div class="form-group">
+                               {!! Form::control('email', 6, 'email', $errors, trans('front/register.email')) !!}
+                             </div>
+                            <div class="form-group">
+                                {!! Form::control('password', 6, 'password', $errors, trans('front/register.password'), null, [trans('front/register.warning'), trans('front/register.warning-password')]) !!}
+                                {!! Form::control('password', 6, 'password_confirmation', $errors, trans('front/register.confirm-password')) !!}
+                            <div>
                                     <label>Номер договора</label>
                                     <input type="dog_id" placeholder="Введите договор" class="form-control"></div>
                                 <br>
@@ -113,7 +113,8 @@
                                     </button>
 
                                 </div>
-                            </form>
+
+                            {!! Form::close() !!}
                         </div>
 
                     </div>

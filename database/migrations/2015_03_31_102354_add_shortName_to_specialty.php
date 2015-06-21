@@ -26,11 +26,11 @@ class AddShortNameToSpecialty extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('specialty', function($table)
-{
-    $table->dropColumn('short_name');
-  $table->dropColumn('icon_class');
-});
+	Schema::table('specialty', function($table)
+	{
+    	$table->dropColumn('short_name');
+  		$table->dropColumn('icon_class');
+	});
+	
 	}
-
 }

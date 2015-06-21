@@ -4,13 +4,13 @@
 @section('main')
 
 
-
     @include('back.partials.entete', ['title' => trans('back/test.dashboard'), 'icone' => 'file', 'fil' => link_to('tests', trans('back/test.dashboard')) . ' / ' . trans('back/test.creation')])
 
     <div class="col-sm-12">
 
         {!! Form::open(['url' => 'tests', 'method' => 'post', 'class' => 'form-horizontal panel']) !!}
         {!! Form::control('text', 0, 'title', $errors, trans('back/lection.name')) !!}
+        {!! Form::selection('objects_id', $select, null, trans('back/lection.nameobjects')) !!}
 
         <h2>Конструктор теста</h2>
 

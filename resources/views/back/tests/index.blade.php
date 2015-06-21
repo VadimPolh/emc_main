@@ -15,9 +15,10 @@
         <table class="table">
             <thead>
             <tr>
-                <th>{{ trans('back/tests.name') }}</th>
-                <th>{{ trans('back/tests.slug') }}</th>
-                <th>{{ trans('back/tests.nameobjects') }}</th>
+                <th>{{ trans('back/test.name') }}</th>
+                <th>{{ trans('back/test.count') }}</th>
+                <th>{{ trans('back/test.nameobjects') }}</th>
+                <th>{{ trans('back/test.locked') }}</th>
                 <th></th>
                 <th></th>
             </tr>
