@@ -87,7 +87,7 @@ function up(){
 
         if (keywords.length > 0){
             $('.search-title').html('Поиск по запросу <span class="text-navy">“'+ keywords +'”</span>');
-            $.post("/search",{keywords: keywords, _token: $('meta[name=_token]').attr('content')},function(markup){
+            $.post("/umc/public/search",{keywords: keywords, _token: $('meta[name=_token]').attr('content')},function(markup){
 
                 $('.search-inner').html(markup);
 
@@ -115,7 +115,7 @@ $('.about-profile').on('click',function(e){
 
     var html,image;
 
-    $.get('/api/user/info', function(data) {
+    $.get('/umc/public/api/user/info', function(data) {
         console.log(data);
 
         image = $('.img-circle').attr('src');
@@ -163,19 +163,26 @@ $('.about-profile').on('click',function(e){
 
     });
 
-
-
-
-    
-
-
-    
-
-   
-
-
-
-    
 });
 
 
+
+$('#practical-show').on('click',function(e){
+
+    $(this).siblings().children('#dn').each(function (idx, el) {
+        $(el).show();
+    });
+
+
+    $(this).hide();
+});
+
+
+
+$('.lockTest').on('click',function(e){
+    e.preventDefault();
+
+
+    console.log($(this).siblings());
+
+});

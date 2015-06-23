@@ -16,7 +16,6 @@
             <thead>
             <tr>
                 <th>{{ trans('back/test.name') }}</th>
-                <th>{{ trans('back/test.count') }}</th>
                 <th>{{ trans('back/test.nameobjects') }}</th>
                 <th>{{ trans('back/test.locked') }}</th>
                 <th></th>

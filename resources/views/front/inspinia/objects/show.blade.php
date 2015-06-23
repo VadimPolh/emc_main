@@ -9,10 +9,10 @@
         <h2>{{$object -> name}}</h2>
         <ol class="breadcrumb">
             <li>
-                <a href="/">Главная</a>
+                <a href="/umc/public/">Главная</a>
             </li>
             <li>
-                <a href="/{{$object -> specialty[0] -> slug}}">{{$object -> specialty[0] -> name}}</a>
+                <a href="/umc/public/{{$object -> specialty[0] -> slug}}">{{$object -> specialty[0] -> name}}</a>
             </li>
             <li class="active">
                 <strong>{{$object -> name}}</strong>

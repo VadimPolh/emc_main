@@ -4,7 +4,9 @@
     Request::is('practical/*') ||
     Request::is('practical') ||
     Request::is('tests/*') ||
-    Request::is('tests')
+    Request::is('tests') ||
+    Request::is('supporting/*') ||
+    Request::is('supporting')
     ? 'class="active"' : '' !!}>
 <a href="#" data-toggle="collapse" data-target="#material_list"><span
             class="fa fa-fw fa-file"></span> {{ trans('back/admin.material') }} <span

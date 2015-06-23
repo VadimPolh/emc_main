@@ -33,6 +33,13 @@ Route::get('medias', [
 ]);
 
 
+// Admin Helper
+Route::get('helper',[
+	'uses' => 'AdminController@helper',
+	'as' => 'helper'
+]);
+
+
 // Blog
 Route::get('blog/order', 'BlogController@indexOrder');
 Route::get('articles', 'BlogController@indexFront');
@@ -108,6 +115,14 @@ Route::resource('groups','GroupsController');
 
 //Test
 Route::resource('tests' , 'TestsController');
+Route::get('{spec}/{group}/{slug}/test/{test}', 'TestsController@showMain');
+
+
+//Supporting
+
+Route::resource('supporting' , 'SupportingController');
+
+
 
 // Auth
 Route::controllers([

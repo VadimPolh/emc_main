@@ -18,13 +18,16 @@
                         <?php $group = DB::table('groups')->where('id', $user->groups_id)->pluck('slug')?>
                     @foreach($object->lection as $lection)
 
-
-                            <div class="feed-element">
-                        <a href="/{{$object -> specialty[0] -> slug}}/{{$group}}/{{$object->slug}}/lection/{{$lection->slug}}" class="pull-left">
+                    @if($i <= 5)
+                        <div class="feed-element">
+                    @else
+                        <div class="feed-element" id="dn">
+                    @endif
+                        <a href="/umc/public/{{$object -> specialty[0] -> slug}}/{{$group}}/{{$object->slug}}/lection/{{$lection->slug}}" class="pull-left">
                             <div class="randomize-box">{{$i}}</div>
                         </a>
                         <div class="media-body" style="  margin-top: 6px;">
-                            <a href="/{{$object -> specialty[0] -> slug}}/{{$group}}/{{$object->slug}}/lection/{{$lection->slug}}">  <strong>{{$lection->title}}</strong></a>
+                            <a href="/umc/public/{{$object -> specialty[0] -> slug}}/{{$group}}/{{$object->slug}}/lection/{{$lection->slug}}">  <strong>{{$lection->title}}</strong></a>
                         </div>
                         </div>
                         <?php $i++;?>

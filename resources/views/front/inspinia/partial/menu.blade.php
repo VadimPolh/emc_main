@@ -37,7 +37,7 @@
                         <li>{!! link_to('auth/logout', trans('front/site.logout')) !!}</li>
                     </ul>
                 </div>
-                <div class="logo-element"><img width="50" src="/img/logo_icon.png"></div>
+                <div class="logo-element"><img width="50" src="/umc/public/img/logo_icon.png"></div>
             </li>
 
             @foreach ($specialty as $spec)
@@ -64,8 +64,8 @@
                             <ul class="nav nav-second-level">
                                 @foreach($spec->objects as $object)
                                     <?php $group = DB::table('groups')->where('id', $user->groups_id)->pluck('slug')?>
-                                    <li {!! Request::is("$spec->slug/$group/$object->slug") || Request::is("$spec->slug/$group/$object->slug/*") ? 'class="active current-child"' : '' !!}>
-                                        <a href="/{{$spec->slug}}/{{$group}}/{{$object->slug}}">{{$object->name}}</a>
+                                    <li {!! Request::is("/umc/public/$spec->slug/$group/$object->slug") || Request::is("/umc/public/$spec->slug/$group/$object->slug/*") ? 'class="active current-child"' : '' !!}>
+                                        <a href="/umc/public/{{$spec->slug}}/{{$group}}/{{$object->slug}}">{{$object->name}}</a>
                                     </li>
                                 @endforeach
                             </ul>
@@ -96,7 +96,7 @@
                                 @foreach($spec->objects as $object)
                                     <?php $group = DB::table('groups')->where('id', $user->groups_id)->pluck('slug')?>
                                     <li {!! Request::is("$spec->slug/$group/$object->slug") || Request::is("$spec->slug/$group/$object->slug/*") ? 'class="active current-child"' : '' !!}>
-                                        <a href="/{{$spec->slug}}/{{$group}}/{{$object->slug}}">{{$object->name}}</a>
+                                        <a href="/umc/public/{{$spec->slug}}/{{$group}}/{{$object->slug}}">{{$object->name}}</a>
                                     </li>
                                 @endforeach
                             </ul>

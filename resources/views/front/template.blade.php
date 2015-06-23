@@ -121,8 +121,6 @@
 	{!! HTML::script('js/plugins.js') !!}
 	{!! HTML::script('js/main.js') !!}
 
-
-
 	@yield('scripts')
 
   </body>

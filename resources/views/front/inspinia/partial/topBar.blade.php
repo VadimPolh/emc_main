@@ -22,7 +22,7 @@
             </ul>
         </li>
         <li>
-            <a href="/auth/logout">
+            <a href="/umc/public/auth/logout">
                 <i class="fa fa-sign-out"></i> Выход
             </a>
         </li>

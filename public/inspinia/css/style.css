@@ -5080,3 +5080,6 @@ body.skin-3 {
     display: none;
   }
 }
+.feed-activity-list #dn{
+  display: none;
+}

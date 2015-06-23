@@ -12,9 +12,11 @@
 		<title>{{ trans('front/site.title') }}</title>
 		<meta name="description" content="">	
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-      {!! HTML::style('css/bootstrap.css') !!}
+		<meta name="_token" content="{!! csrf_token() !!}"/>
+
+		  {!! HTML::style('css/bootstrap.css') !!}
 		  {!! HTML::style('css/add.css') !!}
-  @yield('head')
+	      @yield('head')
   
 </head>
 

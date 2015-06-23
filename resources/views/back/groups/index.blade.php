@@ -8,7 +8,7 @@
 <div id="tri" class="btn-group btn-group-sm">
     <a href="#" type="button" name="total" class="btn btn-default active">{{ trans('back/group.all') }} <span class="badge">{{  $counts['total'] }}</span></a>
     @foreach($specialty as $spec)
-        <a href="#" type="button" name="{!! $spec->slug !!}" class="btn btn-default">{{ $spec->short_name}} <span class="badge">{{ $counts[$spec->groups] }}</span></a>
+        <a href="#" type="button" name="{!! $spec->slug !!}" class="btn btn-default">{{ $spec->short_name}} <span class="badge"></span></a>
         @endforeach
 </div>
 
@@ -39,5 +39,43 @@
 
 
 <div class="pull-right link">{!! $links !!}</div>
+
+@stop
+
+
+
+@section('scripts')
+
+    <script>
+
+        $(function() {
+
+            // Sorting gestion
+            $('#tri').find('a').click(function(e) {
+                e.preventDefault();
+                // Wait icon
+                $('.breadcrumb li').append('<span id="tempo" class="fa fa-refresh fa-spin"></span>');
+                // Buttons aspect
+                $('#tri').find('a').removeClass('active');
+                // Send ajax
+                $.ajax({
+                    url: 'groups/sort/' + $(this).attr('name'),
+                    type: 'GET',
+                    dataType: 'json'
+                })
+                        .done(function(data) {
+                            $('tbody').html(data.view);
+                            $('.link').html(data.links);
+                            $('#tempo').remove();
+                        })
+                        .fail(function() {
+                            alert('{{ trans('back/group.fail') }}');
+                        });
+            });
+
+
+        });
+
+    </script>
 
 @stop

@@ -97,9 +97,19 @@ class GroupsRepository extends BaseRepository
     /**
      * @return mixed
      */
-    public function counts()
+    public function count($specialty = null)
     {
         return $this->model->count();
+    }
+
+    public function counts(){
+
+        $counts = [
+            'total' => $this->count()
+        ];
+
+
+        return $counts;
     }
 
 

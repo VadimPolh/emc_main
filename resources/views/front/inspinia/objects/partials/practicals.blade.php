@@ -22,12 +22,17 @@
                 @foreach($object->practicals as $lection)
 
 
-                    <div class="feed-element">
-                        <a href="/{{$object -> specialty[0] -> slug}}/{{$group}}/{{$object->slug}}/practical/{{$lection->slug}}" class="pull-left">
+                        @if($i <= 5)
+                            <div class="feed-element">
+                        @else
+                            <div class="feed-element" id="dn">
+                        @endif
+
+                        <a href="/umc/public/{{$object -> specialty[0] -> slug}}/{{$group}}/{{$object->slug}}/practical/{{$lection->slug}}" class="pull-left">
                             <div class="randomize-box">{{$i}}</div>
                         </a>
                         <div class="media-body" style="  margin-top: 6px;">
-                            <a href="/{{$object -> specialty[0] -> slug}}/{{$group}}/{{$object->slug}}/practical/{{$lection->slug}}">  <strong>{{$lection->title}}</strong></a>
+                            <a href="/umc/public/{{$object -> specialty[0] -> slug}}/{{$group}}/{{$object->slug}}/practical/{{$lection->slug}}">  <strong>{{$lection->title}}</strong></a>
                         </div>
                     </div>
                     <?php $i++;?>
@@ -37,7 +42,7 @@
 
             </div>
             @if(count($object->practicals) > 5)
-                <button class="btn btn-primary btn-block m-t"><i class="fa fa-arrow-down"></i> Далее</button>
+                <button class="btn btn-primary btn-block m-t" id="practical-show"><i class="fa fa-arrow-down"></i> Далее</button>
             @endif
         </div>
 

@@ -75,7 +75,7 @@ class GroupsController extends Controller
      */
     public function show($id)
     {
-        return view('back.lection.show',  $this->groups_gestion->show($id));
+        return view('back.group.show',  $this->groups_gestion->show($id));
     }
 
     /**
@@ -86,7 +86,7 @@ class GroupsController extends Controller
      */
     public function edit($id)
     {
-        return view('back.lection.edit',  $this->groups_gestion->edit($id));
+        return view('back.group.edit',  $this->groups_gestion->edit($id));
     }
 
     /**
@@ -99,7 +99,7 @@ class GroupsController extends Controller
     {
         $this->groups_gestion->update($request->all(), $id);
 
-        return redirect('lection')->with('ok', trans('back/lection.updated'));
+        return redirect('group')->with('ok', trans('back/group.updated'));
     }
 
     /**

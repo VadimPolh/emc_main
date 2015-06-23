@@ -60,4 +60,15 @@ class AdminController extends Controller {
 		return view('back.filemanager', compact('url'));
 	}
 
+
+	/**
+	 * Show helper page
+     */
+	public function helper(){
+
+		return view('back.helper.index');
+	}
+
+
+
 }

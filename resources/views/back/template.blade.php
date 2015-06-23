@@ -106,6 +106,9 @@
                         <li><a href="{!! url('blog/create') !!}">{{ trans('back/admin.add') }}</a></li>
                     </ul>
                 </li>
+                    <li {!! Request::is('helper') ? 'class="active"' : '' !!}>
+                        <a href="{!! route('helper') !!}"><span class="fa fa-fw fa-info"></span> {{ trans('back/admin.helper') }}</a>
+                    </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->

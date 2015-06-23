@@ -36,7 +36,6 @@
 				<tr>
 					<th>{{ trans('back/specialty.name') }}</th>
 					<th>{{ trans('back/users.role') }}</th>
-					<th>{{ trans('back/users.seen') }}</th>
 					<th></th>
 					<th></th>
 				</tr>
@@ -56,28 +55,6 @@
   <script>
     
     $(function() {
-
-      // Seen gestion
-      $(document).on('change', ':checkbox', function() {    
-        $(this).parents('tr').toggleClass('warning');
-        $(this).hide().parent().append('<i class="fa fa-refresh fa-spin"></i>');
-        var token = $('input[name="_token"]').val();
-        $.ajax({
-          url: 'userseen/' + this.value,
-          type: 'PUT',
-          data: "seen=" + this.checked + "&_token=" + token
-        })
-        .done(function() {
-          $('.fa-spin').remove();
-          $('input[type="checkbox"]:hidden').show();
-        })
-        .fail(function() {
-          $('.fa-spin').remove();
-          var chk = $('input[type="checkbox"]:hidden');
-          chk.show().prop('checked', chk.is(':checked') ? null:'checked').parents('tr').toggleClass('warning');
-          alert('{{ trans('back/users.fail') }}');
-        });
-      });
 
       // Sorting gestion
       $('#tri').find('a').click(function(e) {

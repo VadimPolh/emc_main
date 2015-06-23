@@ -23,7 +23,7 @@
                     <div class="row">
                         <div class="col-sm-6 b-r">
                             <h3 class="m-t-none m-b">Войдите</h3>
-                            {!! Form::open(['url' => 'auth/login', 'method' => 'post', 'role' => 'form']) !!}
+                            {!! Form::open(['url' => 'auth/login', 'method' => 'post', 'role' => 'form','class'=>'register-form']) !!}
                                 {!! Form::control('text', 12, 'log', $errors, trans('front/login.log')) !!}
                                 {!! Form::control('password', 12, 'password', $errors, trans('front/login.password')) !!}
                             <div>
@@ -106,10 +106,10 @@
                                 {!! Form::control('password', 6, 'password_confirmation', $errors, trans('front/register.confirm-password')) !!}
                             <div>
                                     <label>Номер договора</label>
-                                    <input type="dog_id" placeholder="Введите договор" class="form-control"></div>
+                                    <input type="text" placeholder="Введите договор" name ="dogid" class="form-control"></div>
                                 <br>
                                 <div>
-                                    <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit"> <strong>Зарегестрироватся</strong>
+                                    <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit"> <strong>Зарегистрироваться</strong>
                                     </button>
 
                                 </div>

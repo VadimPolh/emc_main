@@ -16,7 +16,7 @@
 
 
         <div id="demo" data-quiz="auto">
-            <input type="hidden" class="quiz-store">
+            <input type="hidden" name="test-content" class="quiz-store">
 
             <h5>
                Создать новый вопрос с:

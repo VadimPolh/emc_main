@@ -64,31 +64,27 @@ class TestsRepository extends BaseRepository
 
     public function store($inputs)
     {
-        $lection = new $this->model;
+        $test = new $this->model;
 
-        $this->save($lection, $inputs);
+        $this->save($test, $inputs);
 
-        return $lection;
+        return $test;
     }
 
-    private function save($lection, $inputs)
+    private function save($test, $inputs)
     {
-        $lection->title = $inputs['title'];
-        $lection->summary = $inputs['summary'];
-        $lection->objects_id = $inputs['objects_id'];
-        $lection->topics_id =$inputs['topics_id'];
+        $test->name = $inputs['title'];
+        $test->summary = $inputs['test-content'];
+        $test->objects_id = $inputs['objects_id'];
 
-
-        $lection->save();
-
-
+        $test->save();
     }
 
 
     public function getBySlug($slug)
     {
 
-        return Lection::findBySlug($slug);
+        return Tests::findBySlug($slug);
 
     }
 

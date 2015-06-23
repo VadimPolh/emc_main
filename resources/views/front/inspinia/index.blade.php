@@ -31,7 +31,7 @@
                             </td>
                             <td class="mail-ontact"><a href="#">{{ $post->user->username }}</a></td>
                             <td class="mail-subject"><a class="news-href"
-                                                        href="/blog/{{$post->slug}}">{{ $post->title }}</a></td>
+                                                        href="/umc/public/blog/{{$post->slug}}">{{ $post->title }}</a></td>
                             <td class=""></td>
                             <td class="text-right mail-date">{!! $post->created_at . ($post->created_at !=
                                 $post->updated_at ? trans('front/blog.updated') . $post->updated_at : '') !!}

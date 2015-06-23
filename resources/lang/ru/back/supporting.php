@@ -1,0 +1,32 @@
+<?php
+
+return [
+    'dashboard' => 'Список вспомогательного материала',
+    'users' => 'Вспомогательный материал',
+    'add' => 'Добавить материал',
+    'all' => 'Все специальности',
+    'name' => 'Название',
+    'chief' => 'Куратор специальности',
+    'role' => 'Role',
+    'seen' => 'Seen',
+    'send' => 'Добавить',
+    'see' => 'See',
+    'edit' => 'Edit',
+    'destroy' => 'Destroy',
+    'destroy-warning' => 'Really destroy this user ?',
+    'fail' => 'Update fail.',
+    'creation' => 'Добовление',
+    'Users' => 'Users',
+    'email' => 'Email',
+    'password' => 'Password',
+    'confirm-password' => 'Confirm password',
+    'edition' => 'Изменение',
+    'card' => 'Card',
+    'created' => 'Специальность создана',
+    'updated' => 'Специальность обновлена',
+    'destroyed' => 'User destroyed.',
+    'specialty_id' => 'Номер Специальности',
+    'short_name' => 'Краткое название',
+    'icon_class' => 'Класс иконки для отображения',
+    'nameobjects' => 'Название специальности'
+];

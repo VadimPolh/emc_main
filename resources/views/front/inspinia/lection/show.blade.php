@@ -12,11 +12,11 @@
                     <a href="/">Главная</a>
                 </li>
                 <li>
-                    <a href="/{{$obj -> specialty[0] -> slug}}">{{$obj -> specialty[0] -> short_name}}</a>
+                    <a href="/umc/public/{{$obj -> specialty[0] -> slug}}">{{$obj -> specialty[0] -> short_name}}</a>
                 </li>
                 <li>
                     <?php $group = DB::table('groups')->where('id', $user->groups_id)->pluck('slug')?>
-                    <a href="/{{$obj -> specialty[0] -> slug}}/{{$group}}/{{$obj -> slug}}">{{$obj -> name}}</a>
+                    <a href="/umc/public/{{$obj -> specialty[0] -> slug}}/{{$group}}/{{$obj -> slug}}">{{$obj -> name}}</a>
                 </li>
                 <li class="active">
                     <strong>{{$lection -> title}}</strong>
@@ -101,7 +101,7 @@
                     <ul>
                     @foreach($lection->practicals as $practical)
                     <?php $i =1?>
-                        <li><a href="#">{{$i}}.{{$practical->title}}</a></li>
+                        <li><a href="/umc/public/">{{$i}}.{{$practical->title}}</a></li>
                     <?php $i++?>
                     @endforeach
                     </ul>

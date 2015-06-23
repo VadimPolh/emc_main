@@ -43,13 +43,24 @@ class UserRepository extends BaseRepository{
 			$user->seen = $inputs['seen'] == 'true';		
 		} else {
 
-			$user->username = $inputs['username'];
+
+
+
+			if(isset($inputs['username'])) {
+				$user->username = $inputs['username'];
+			}
+
 			$user->email = $inputs['email'];
-      if(isset($inputs['group_id'])) {
+
+			if(isset($inputs['group_id'])) {
 				$user->groups_id = $inputs['group_id'];	
-			} else {
-        $user->groups_id = 2;
-      }
+			}
+			elseif(isset($inputs['dogid'])){
+				$user->groups_id = 1;
+			}
+			else {
+        		$user->groups_id = 2;
+      		}
 
 			if(isset($inputs['role'])) {
 				$user->role_id = $inputs['role'];	
