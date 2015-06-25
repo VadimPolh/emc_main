@@ -11,6 +11,7 @@
         {!! Form::model($lection, ['route' => ['lection.update', $lection->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
         {!! Form::control('text', 0, 'title', $errors, trans('back/lection.name')) !!}
         {!! Form::selection('objects_id', $select, null, trans('back/lection.nameobjects')) !!}
+        {!! Form::selection('topics_id', $topics, null, trans('back/lection.topics')) !!}
         {!! Form::control('textarea', 0, 'summary', $errors, trans('back/lection.summary')) !!}
         {!! Form::submit(trans('front/form.send')) !!}
         {!! Form::close() !!}

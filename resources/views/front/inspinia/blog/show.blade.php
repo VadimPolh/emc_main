@@ -5,7 +5,7 @@
 <div class="col-lg-12 animated fadeInRight">
             <div class="mail-box-header">
                 <div class="pull-right tooltip-demo">
-                    <a href="/" class="btn btn-white btn-sm to-main" data-toggle="tooltip" data-placement="top" title="Вернутся назад"><i class="fa fa-reply"></i> Вернутся назад</a>
+                    <a href="/umc/public/" class="btn btn-white btn-sm to-main" data-toggle="tooltip" data-placement="top" title="Вернутся назад"><i class="fa fa-reply"></i> Вернутся назад</a>
                     <a href="#" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Распечатать"><i class="fa fa-print"></i> </a>
                    
                 </div>

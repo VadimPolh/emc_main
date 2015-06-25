@@ -123,6 +123,26 @@ Route::get('{spec}/{group}/{slug}/test/{test}', 'TestsController@showMain');
 Route::resource('supporting' , 'SupportingController');
 
 
+//Ilya course api
+
+Route::get('/api/kurs',function(){
+
+
+		function Parse ($url) {
+			$fileContents= file_get_contents($url);
+			$fileContents = str_replace(array("\n", "\r", "\t"), '', $fileContents);
+			$fileContents = trim(str_replace('"', "'", $fileContents));
+			$simpleXml = simplexml_load_string($fileContents);
+			$json = json_encode($simpleXml);
+
+			return $json;
+		}
+
+
+	return Parse('http://www.nbrb.by/Services/XmlExRates.aspx');
+});
+
+
 
 // Auth
 Route::controllers([

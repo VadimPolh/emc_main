@@ -453,4 +453,7 @@
     list-style: none;
 }
 
-
+.option-validation input{
+    margin-top: -30px;
+    display: block;
+}

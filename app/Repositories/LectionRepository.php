@@ -96,11 +96,11 @@ class LectionRepository extends BaseRepository
     public function edit($id)
     {
         $lection = $this->getById($id);
-
         $select = $this->objects->all()->lists('name', 'id');
         $url = Medias::getUrl($this->user_gestion);
+        $topics = $this->topics->all()->lists('name','id');
 
-        return compact('lection','select','url');
+        return compact('lection','select','url','topics');
     }
 
     /**

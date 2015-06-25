@@ -39,7 +39,7 @@
 
                 </div>
                 @if(count($object->lection) > 5)
-                <button class="btn btn-primary btn-block m-t"><i class="fa fa-arrow-down"></i> Далее</button>
+                <button class="btn btn-primary btn-block m-t" id="lections-show"><i class="fa fa-arrow-down"></i> Далее</button>
                     @endif
 
             </div>

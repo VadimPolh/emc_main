@@ -48,6 +48,8 @@ class UserRepository extends BaseRepository{
 
 			if(isset($inputs['username'])) {
 				$user->username = $inputs['username'];
+			}else{
+				$user->username = 'Не указан';
 			}
 
 			$user->email = $inputs['email'];

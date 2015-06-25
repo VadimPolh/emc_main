@@ -56,19 +56,19 @@
             <div class="mail-attachment">
                 <p>
                     <span><i class="fa fa-paperclip"></i> {{count($lection->attachment)}} вложения - </span>
-                    <a href="#">Скачать все</a>
+                    <a href="#" id="downloadAllAttachment">Скачать все</a>
                     |
-                    <a href="#">Просмотреть картинки</a>
+                    <a href="#" id="showImages">Просмотреть картинки</a>
                 </p>
                 @foreach($lection->attachment as $attachment)
                     <div class="attachment">
                         <div class="file-box">
                             <div class="file">
-                                <a href="/attachment/lection/{{$lection->id}}/{{$attachment->name}}">
+                                <a href="/umc/public/attachment/lection/{{$lection->id}}/{{$attachment->name}}">
                                     <span class="corner"></span>
                                     @if(str_contains($attachment->name,'.jpg'))
                                         <div class="image">
-                                          <img alt="image" class="img-responsive" src="/attachment/lection/{{$lection->id}}/{{$attachment->name}}">
+                                          <img alt="image" class="img-responsive" src="/umc/public/attachment/lection/{{$lection->id}}/{{$attachment->name}}">
                                         </div>
                                     @else
                                         <div class="icon">
@@ -99,8 +99,8 @@
                 <div class="mail-body tooltip-demo">
                     <h4>Практические к данной лекции</h4>
                     <ul>
-                    @foreach($lection->practicals as $practical)
                     <?php $i =1?>
+                    @foreach($lection->practicals as $practical)
                         <li><a href="/umc/public/">{{$i}}.{{$practical->title}}</a></li>
                     <?php $i++?>
                     @endforeach

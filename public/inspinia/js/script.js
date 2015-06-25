@@ -179,6 +179,21 @@ $('#practical-show').on('click',function(e){
 
 
 
+$('#lections-show').on('click',function(e){
+
+    $(this).siblings().children('#dn').each(function (idx, el) {
+        $(el).show();
+    });
+
+
+    $(this).hide();
+});
+
+
+
+
+
+
 $('.lockTest').on('click',function(e){
     e.preventDefault();
 

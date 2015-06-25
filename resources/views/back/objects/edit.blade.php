@@ -69,7 +69,7 @@
 
             $scope.init = function() {
                 $scope.loading = true;
-                $http.get('/api/topics').
+                $http.get('/umc/public/api/topics').
                         success(function(data, status, headers, config) {
                             $scope.todos = data;
                             $scope.loading = false;
@@ -80,7 +80,7 @@
             $scope.addTodo = function() {
                 $scope.loading = true;
 
-                $http.post('/api/topics', {
+                $http.post('/umc/public/api/topics', {
                     name: $scope.todo.name,
                     objects_id: {{$object->id}},
                     _token: $('meta[name=_token]').attr('content'),
@@ -96,7 +96,7 @@
             $scope.updateTodo = function(todo) {
                 $scope.loading = true;
 
-                $http.put('/api/topics/' + todo.id, {
+                $http.put('/umc/public/api/topics/' + todo.id, {
                     title: todo.title,
                     done: todo.done
                 }).success(function(data, status, headers, config) {
@@ -111,7 +111,7 @@
 
                 var todo = $scope.todos[index];
 
-                $http.delete('/api/topics/' + todo.id)
+                $http.delete('/umc/public/api/topics/' + todo.id)
                         .success(function() {
                             $scope.todos.splice(index, 1);
                             $scope.loading = false;

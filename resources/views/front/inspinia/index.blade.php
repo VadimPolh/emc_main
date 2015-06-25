@@ -33,8 +33,7 @@
                             <td class="mail-subject"><a class="news-href"
                                                         href="/umc/public/blog/{{$post->slug}}">{{ $post->title }}</a></td>
                             <td class=""></td>
-                            <td class="text-right mail-date">{!! $post->created_at . ($post->created_at !=
-                                $post->updated_at ? trans('front/blog.updated') . $post->updated_at : '') !!}
+                            <td class="text-right mail-date">{!! $post->created_at !!}
                             </td>
                         </tr>
                     @endforeach

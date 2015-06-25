@@ -22,7 +22,7 @@ return [
 	'edition' => 'Изменение',
 	'card' => 'Card',
 	'created' => 'Лекция создана.',
-	'updated' => 'User updated.',
+	'updated' => 'Лекция обновлена.',
 	'destroyed' => 'Лекция удален',
   	'specialty' => 'Специальность',
   	'slug' => 'Урл',
